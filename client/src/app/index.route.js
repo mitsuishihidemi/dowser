@@ -20,6 +20,21 @@
         controller: 'WizardController',
         controllerAs: 'wizard'
       })
+      .state('wizard.register', {
+        templateUrl: 'app/register/register.html',
+        controller: 'RegisterController',
+        controllerAs: 'register'
+      })
+      .state('wizard.importer', {
+        templateUrl: 'app/importer/importer.html',
+        controller: 'ImporterController',
+        controllerAs: 'importer'
+      })
+      .state('wizard.agreement', {
+        templateUrl: 'app/agreement/agreement.html',
+        controller: 'AgreementController',
+        controllerAs: 'agreement'
+      })
       .state('dashboard', {
         url: '/dashboard',
         templateUrl: 'app/dashboard/dashboard.html',

@@ -6,7 +6,11 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
+  function MainController($state) {
+    var vm = this;
 
+    vm.getStarted = function() {      
+      $state.go('wizard')
+    }
   }
 })();

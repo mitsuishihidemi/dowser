@@ -6,7 +6,7 @@
     .controller('WizardController', WizardController);
 
   /** @ngInject */
-  function WizardController() {
-
+  function WizardController($state) {
+    $state.go('wizard.register');
   }
 })();
