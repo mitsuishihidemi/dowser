@@ -7,6 +7,6 @@
 
   /** @ngInject */
   function WizardController($state) {
-    $state.go('wizard.agreement');
+    $state.go('wizard.register');
   }
 })();
