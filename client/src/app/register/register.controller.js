@@ -19,7 +19,7 @@
 
     vm.next = function() {
       Api.post('register', vm.data, function() {
-        $state.go('wizard.importer');
+        $state.go('importer');
       });
     };
 

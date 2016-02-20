@@ -6,11 +6,14 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($state) {
+  function MainController($state, $timeout) {
     var vm = this;
 
     vm.getStarted = function() {
-      $state.go('wizard')
+      $timeout(function () {
+        $state.go('register');
+      }, 1000);
+
     }
   }
 })();

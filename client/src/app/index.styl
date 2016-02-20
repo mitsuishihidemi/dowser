@@ -5,49 +5,32 @@
 // bower:styl
 // endbower
 
-@import url("//fonts.googleapis.com/css?family=Roboto\+Slab:400,700|Roboto:400,700,700italic,400italic")
-
-@font-face
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
-
-.material-icons
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-
-html
-  font-family 'Roboto Slab', serif
-
-.input-ace
+html, body, .app
   width 100%
-  height 500px 
+  height 100%
+
+body
+  margin 0
+  padding 0
+
+.app
+  position relative
+
+// [ui-view].ng-enter, [ui-view].ng-leave
+//   position absolute
+//   transition all 1s ease-in-out
+//
+// [ui-view].ng-enter
+//   right -100%
+//
+// [ui-view].ng-enter-active
+//   right 0
+//
+// [ui-view].ng-leave
+//   left 0
+//
+// [ui-view].ng-leave-active
+//   left -100%
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

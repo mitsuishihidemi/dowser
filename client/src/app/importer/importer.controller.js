@@ -24,7 +24,7 @@
 
     vm.next = function() {
       Api.post('importer', vm.data, function() {
-        $state.go('wizard.agreement');
+        $state.go('agreement');
       });
     };
 
