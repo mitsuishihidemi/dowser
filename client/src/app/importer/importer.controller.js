@@ -5,14 +5,14 @@
     .module('dowser')
     .controller('ImporterController', ImporterController);
 
-  ImporterController.$inject = ['$state', 'Api'];
+  ImporterController.$inject = ['$state', '$stateParams', 'Api', 'DataGenerator'];
 
   /** @ngInject */
-  function ImporterController($state, Api) {
+  function ImporterController($state, $stateParams, Api, DataGenerator) {
     var vm = this;
 
     vm.data = {
-      dataForImport: ''
+      dataForImport: DataGenerator.generate($stateParams)
     };
 
     vm.aceSettings = {
