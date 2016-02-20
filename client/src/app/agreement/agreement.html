@@ -1,2 +1,6 @@
-<h1>Agreement</h1>
-<button ng-click="agreement.accept()">Accept</button>
+<div class="agreement">
+  <h3 class="agreement-title md-display-2">Do you accept to share your data?</h3>
+  <p class="agreement-description md-headline">If you accept you will have access for data from other users.</p>
+  <md-button ng-click="agreement.accept()" class="md-raised md-primary wizard-button">Accept</md-button>
+  <md-button ng-click="agreement.deny()" class="md-raised md-warn wizard-button">Deny</md-button>
+</div>

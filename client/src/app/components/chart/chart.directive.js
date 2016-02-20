@@ -43,10 +43,7 @@
       };
 
       $rootScope.$on('chart:load', function(evt, data) {
-        if (!chart) {
-          return vm.render(data);
-        }
-
+        return vm.render(data);
       });
     }
   }

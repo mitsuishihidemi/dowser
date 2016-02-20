@@ -12,7 +12,7 @@
       get: get
     };
 
-    function get() {
+    function get(category) {
       var obj = [
         {
           category: 'Ice Cream Sells',
@@ -55,7 +55,7 @@
           ]
         },
         {
-          category: 'Balbalbalabla',
+          category: 'My Sells',
           data: [
             { date: 1455365898000, value: 124 },
             { date: 1455452328000, value: 225 },
@@ -71,11 +71,14 @@
             { date: 1456316481000, value: 133 },
             { date: 1456402893000, value: 231 },
             { date: 1456489323000, value: 233 },
-            { date: 1456575735000, value: 332 }
+            { date: 1456575735000, value: 122 }
           ]
         }
       ];
-      return obj;
+
+      return obj.filter(function(data) {
+        return data.category === category;
+      })[0];
     }
   }
 })();
