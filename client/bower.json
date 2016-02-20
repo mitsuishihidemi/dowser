@@ -11,10 +11,13 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.4.2",
+    "angular-ui-ace": "bower",
+    "ace-builds": "^1.2.3",
     "c3": "^0.4.10"
   },
   "devDependencies": {
-    "angular-mocks": "~1.4.2"
+    "angular-mocks": "~1.4.2",
+    "ace-builds": "^1.2.3"
   },
   "resolutions": {
     "angular": "~1.4.2"

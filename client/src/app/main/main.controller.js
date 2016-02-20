@@ -9,7 +9,7 @@
   function MainController($state) {
     var vm = this;
 
-    vm.getStarted = function() {      
+    vm.getStarted = function() {
       $state.go('wizard')
     }
   }
