@@ -18,9 +18,6 @@
         "fontFamily": "sans",
         "fontSize": 13,
         "theme": "dark",
-        "chartScrollbar": {
-          "enabled": true
-        },
         "categoryAxis": {
           "boldPeriodBeginning": false,
           "firstDayOfWeek": 0,
@@ -30,7 +27,7 @@
         },
         "chartCursor": {
           "enabled": true,
-          "balloonPointerOrientation": " vertical",
+          "balloonPointerOrientation": "horizontal",
           "bulletSize": 5,
           "categoryBalloonDateFormat": "MMM DD",
           "graphBulletSize": 0

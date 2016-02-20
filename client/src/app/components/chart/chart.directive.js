@@ -41,6 +41,15 @@
 
       $rootScope.$emit('amchart:load', [
         {
+          "date": "2016-02-15",
+          "Ice Cream Sells": "200",
+          "Weather": "10"
+        },
+        {
+          "date": "2016-02-16",
+          "Weather": "15"
+        },
+        {
           "date": "2016-02-17",
           "Ice Cream Sells": "800",
           "Weather": "25"
@@ -73,7 +82,11 @@
         },
         {
           "date": "2016-02-23",
-          "Ice Cream Sells": "600",
+          "Ice Cream Sells": "600"
+        },
+        {
+          "date": "2016-02-25",
+          "Ice Cream Sells": "300",
           "Weather": "28"
         }
       ]);

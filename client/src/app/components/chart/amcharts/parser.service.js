@@ -15,7 +15,7 @@
     }
 
     function AmChartParser(data) {
-      this.results = [];
+      this.results = {};
       this.__unparsedData = data;
     }
 
@@ -33,39 +33,38 @@
       });
     };
 
+    AmChartParser.prototype.__formatResultDates = function() {
+      this.results.forEach(function(result) {
+        result.date = result.date.format('YYYY-MM-DD');
+      });
+    };
+
     AmChartParser.prototype.__getResultIndexByDate = function(date) {
       for (var i = 0; i < this.results.length; i += 1) {
         if (this.results[i].date.isSame(date)) {
           return i;
         }
       }
-      return false;
-    };
-
-    AmChartParser.prototype.__addToResults = function(category, date, value) {
-      var resultIndex = this.__getResultIndexByDate(date);
-
-      if (!resultIndex) {
-        return this.results.push(new Result(category, date, value));
-      }
-
-      this.results[resultIndex][category] = value;
     };
 
     AmChartParser.prototype.__buildResults = function() {
       var self = this;
 
       self.__unparsedData.forEach(function(set) {
-        var category = set.category;
         set.data.forEach(function(data) {
-          self.__addToResults(category, data.date, data.value)
+          var date = data.date.format('YYYY-MM-DD');
+          if (self.results[date]) {
+            return self.results[date][set.category] = data.value;
+          }
+          self.results[date] = new Result(set.category, data.date, data.value);
         });
       });
     };
 
-    AmChartParser.prototype.__sortResults = function() {
-      this.results = this.results.sort(function(left, right) {
-        return left.date.isAfter(right.date);
+    AmChartParser.prototype.__convertResultsToArray = function() {
+      var self = this;
+      self.results = Object.keys(self.results).map(function(key) {
+        return self.results[key];
       });
     };
 
@@ -74,9 +73,9 @@
 
       self.__convertAllDates();
       self.__buildResults();
-      self.__sortResults();
+      self.__convertResultsToArray();
+      self.__formatResultDates();
 
-      console.log(self.results);
       return self.results;
     };
 

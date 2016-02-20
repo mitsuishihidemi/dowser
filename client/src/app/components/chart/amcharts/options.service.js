@@ -21,7 +21,6 @@
 
       chart.dataProvider = new AmChartParser(mockDatas).parse();
 
-      console.log(datas);
       return chart;
     }
 
