@@ -1,9 +1,10 @@
-
 var Point = function(data) {
     this.data = data;
     this.error = [];
     this.validate();
 }
+
+Point.prototype.name = "dataPoints";
 
 Point.prototype.validate = function() {
     

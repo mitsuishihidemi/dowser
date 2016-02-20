@@ -5,15 +5,16 @@
     .module('dowser')
     .controller('ImporterController', ImporterController);
 
-  ImporterController.$inject = ['$state', '$stateParams', 'Api', 'DataGenerator'];
+  ImporterController.$inject = ['$timeout', '$state', '$stateParams', 'Api', 'DataGenerator'];
 
   /** @ngInject */
-  function ImporterController($state, $stateParams, Api, DataGenerator) {
+  function ImporterController($timeout, $state, $stateParams, Api, DataGenerator) {
     var vm = this;
+    var comment = '// This is just an Example data\n';
+    var generatedData = DataGenerator.generate($stateParams);
 
     vm.data = {
-      // Only for test
-      dataForImport: DataGenerator.generate($stateParams)
+      dataForImport: addPrefixComment(generatedData)
     };
 
     vm.aceSettings = {
@@ -24,10 +25,24 @@
     };
 
     vm.next = function() {
-      Api.post('importer', vm.data, function() {
-        $state.go('wizard.agreement');
-      });
+      $timeout(importerData, 500);
     };
 
+    function importerData() {
+      var data = removePrefixComment(vm.data.dataForImport);
+      Api.post('importer', data, function() {
+        $state.go('wizard.agreement');
+      });
+    }
+
+    function addPrefixComment(data) {
+      var stringfyData = JSON.stringify(data, null, 2);
+      return comment.concat(stringfyData);
+    }
+
+    function removePrefixComment(stringfyData) {
+      var data = stringfyData.replace(comment, '');
+      return JSON.parse(data);
+    }
   }
 })();

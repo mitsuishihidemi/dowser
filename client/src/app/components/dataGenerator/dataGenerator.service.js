@@ -21,13 +21,7 @@
         data.push(item);
       }
 
-      return prefixComment(data);
-    }
-
-    function prefixComment(data) {
-      var comment = "// This is just an Example data\n";
-      var stringfyData = JSON.stringify(data, null, 2);
-      return comment.concat(stringfyData);
+      return data;
     }
 
     function createItem(dataName) {

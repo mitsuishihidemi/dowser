@@ -1,6 +1,5 @@
 var Point = require('./Point');
 
-
 var Type = function(data) {
     this.data = data;
     this.error = [];
@@ -8,6 +7,8 @@ var Type = function(data) {
     this.validate();
     this.createPoints();
 }
+
+Type.prototype.name = "dataTypes";
 
 Type.prototype.validate = function() {
     
@@ -55,7 +56,7 @@ Type.prototype.createPoints = function() {
         point = new Point(this.data['points'][i]);
         
         if(point.getErrors()) {
-            this.errors = this.errors.concat(point.getErrors());
+            this.error = this.error.concat(point.getErrors());
         }
         
         this.points.push(point);
