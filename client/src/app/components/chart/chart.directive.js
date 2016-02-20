@@ -19,7 +19,7 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($element, $rootScope, $filter, ChartDataProvider) {
+    function ChartController($element, $rootScope, $filter) {
       var vm = this;
 
       var chart;
@@ -42,11 +42,12 @@
         });
       };
 
-      $rootScope.$on('chart:start', function() {
-        ChartDataProvider.load().then(vm.render);
-      });
+      $rootScope.$on('chart:load', function(evt, data) {
+        if (!chart) {
+          return vm.render(data);
+        }
 
-      $rootScope.$emit('chart:start');
+      });
     }
   }
 
