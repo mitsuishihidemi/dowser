@@ -12,7 +12,7 @@
     vm.getStarted = function() {
       $timeout(function () {
         $state.go('wizard.register');
-      }, 1000);
+      }, 500);
 
     }
   }

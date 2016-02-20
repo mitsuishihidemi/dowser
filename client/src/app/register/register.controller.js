@@ -18,7 +18,7 @@
     };
 
     vm.next = function() {
-      $timeout(registerData, 1000);
+      $timeout(registerData, 500);
     };
 
     function registerData() {
