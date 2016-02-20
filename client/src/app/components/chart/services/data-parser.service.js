@@ -86,15 +86,13 @@
 
     Parser.prototype.__buildRegions = function() {
       var self = this;
-      var endIndex = self.timestampColumn.length;
-      var startIndex = self.timestampColumn.indexOf($filter('chartTimestamp')(Date.now()));
 
       self.columns.forEach(function(column) {
         var category = column[0];
         if (category === 'timestamp') {
           return;
         }
-        self.regions[category] = [{ start: startIndex, end: endIndex }];
+        self.regions[category] = [{ start: $filter('chartTimestamp')(Date.now()), style: 'dashed' }];
       });
     };
 
@@ -108,7 +106,8 @@
       var obj = {
         x: 'timestamp',
         xFormat: '%Y %m %d',
-        columns: this.columns
+        columns: this.columns,
+        regions: this.regions
       };
 
       return obj;
