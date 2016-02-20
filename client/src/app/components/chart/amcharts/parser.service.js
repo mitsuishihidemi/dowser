@@ -61,6 +61,11 @@
       });
     };
 
+    AmChartParser.prototype.__addDashedOnToday = function() {
+      var today = moment().format('YYYY-MM-DD');
+      this.results[today]['dashLength'] = 7;
+    };
+
     AmChartParser.prototype.__convertResultsToArray = function() {
       var self = this;
       self.results = Object.keys(self.results).map(function(key) {
@@ -73,6 +78,7 @@
 
       self.__convertAllDates();
       self.__buildResults();
+      self.__addDashedOnToday();
       self.__convertResultsToArray();
       self.__formatResultDates();
 
