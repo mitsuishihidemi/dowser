@@ -12,6 +12,7 @@
     var vm = this;
 
     vm.data = {
+      // Only for test
       dataForImport: DataGenerator.generate($stateParams)
     };
 
@@ -24,7 +25,7 @@
 
     vm.next = function() {
       Api.post('importer', vm.data, function() {
-        $state.go('agreement');
+        $state.go('wizard.agreement');
       });
     };
 
