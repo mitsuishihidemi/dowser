@@ -1,1 +1,15 @@
 <h1>Register</h1>
+<div>
+  <md-input-container>
+    <label>Data name</label>
+    <input ng-model="register.data.dataName" md-placeholder="Climate" required>
+  </md-input-container>
+  <md-input-container>
+    <label>Unit</label>
+    <input ng-model="register.data.unit" md-placeholder="ºF">
+  </md-input-container>
+  <md-checkbox ng-model="register.data.itAcumulates">
+    it accumulates
+  </md-checkbox>
+  <md-button ng-click="register.next()" class="md-raised">Next</md-button>
+</div>

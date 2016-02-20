@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('dowser', ['ngAnimate', 'ui.router', 'ngMaterial', 'toastr']);
+    .module('dowser', ['ngAnimate', 'ui.router', 'ui.ace', 'ngMaterial', 'toastr']);
 
 })();
