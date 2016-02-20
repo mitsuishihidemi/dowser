@@ -13,7 +13,7 @@ CommandFactory.prototype.ROUTE_DATA_TYPE_UPDATE = 'DataType/Update';
 
 CommandFactory.prototype.create = function(command) {
     if(this.commands[command]) {
-         return new this.commands[command]; 
+         return new this.commands[command](this.storage); 
     }
 
     throw new Error("Command not exist"); 

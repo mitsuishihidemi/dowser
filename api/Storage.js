@@ -4,29 +4,30 @@ var Storage = function(host, port, db) {
     this.host = host;
     this.port = port;
     this.db = db;
-
     this.connect();
 }
 
 Storage.prototype.connect = function() {
+    var self = this;
     rethinkdb.connect({
         host: this.host,
         port: this.port,
         authKey: '',
         db: this.db
-    }, this.setConnection);
+    }, function(error, connection) { self.setConnection(error, connection); } );
 }
 
-Storage.prototype.setConnection = function(connection) {
+Storage.prototype.setConnection = function(error, connection) {
+     if (error) throw error;
     this.connection = connection;
 }
 
-Storage.prototype.table = function(tableName) {
+Storage.prototype.setTable = function(tableName) {
     this.table = tableName;
     return this;
 }
 
-Storage.prototype.data = function(data) {
+Storage.prototype.setData = function(data) {
     this.data = data;
     return this;
 }
