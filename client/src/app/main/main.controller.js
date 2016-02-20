@@ -11,7 +11,7 @@
 
     vm.getStarted = function() {
       $timeout(function () {
-        $state.go('register');
+        $state.go('wizard.register');
       }, 1000);
 
     }

@@ -14,20 +14,24 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .state('register', {
-        url: '/register',
+      .state('wizard', {
+        url: '/wizard',
+        templateUrl: 'app/wizard/wizard.html',
+        controller: 'WizardController',
+        controllerAs: 'wizard'
+      })
+      .state('wizard.register', {
         templateUrl: 'app/register/register.html',
         controller: 'RegisterController',
         controllerAs: 'register'
       })
-      .state('importer', {
-        url: '/importer',
+      .state('wizard.importer', {
+        params: {dataName: null},
         templateUrl: 'app/importer/importer.html',
         controller: 'ImporterController',
         controllerAs: 'importer'
       })
-      .state('agreement', {
-        url: '/agreement',
+      .state('wizard.agreement', {
         templateUrl: 'app/agreement/agreement.html',
         controller: 'AgreementController',
         controllerAs: 'agreement'

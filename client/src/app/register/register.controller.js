@@ -5,10 +5,10 @@
     .module('dowser')
     .controller('RegisterController', RegisterController);
 
-  RegisterController.$inject = ['$state', 'Api'];
+  RegisterController.$inject = ['$timeout', '$state', 'Api'];
 
   /** @ngInject */
-  function RegisterController($state, Api) {
+  function RegisterController($timeout, $state, Api) {
     var vm = this;
 
     vm.data = {
@@ -18,10 +18,13 @@
     };
 
     vm.next = function() {
-      Api.post('register', vm.data, function() {
-        $state.go('importer');
-      });
+      $timeout(registerData, 1000);
     };
 
+    function registerData() {
+      Api.post('register', vm.data, function() {
+        $state.go('wizard.importer', vm.data);
+      });
+    }
   }
 })();
