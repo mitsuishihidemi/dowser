@@ -20,7 +20,7 @@
     }
 
     AmChartParser.prototype.__convertDate = function(date) {
-      return moment(date);
+      return moment(date).startOf('day');
     };
 
     AmChartParser.prototype.__convertAllDates = function() {
