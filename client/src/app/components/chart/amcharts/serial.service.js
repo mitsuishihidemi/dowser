@@ -2,8 +2,8 @@
   'use strict';
 
   angular
-  .module('dowser')
-  .factory('AmChartSerial', AmChartSerialService);
+    .module('dowser')
+    .factory('AmChartSerial', AmChartSerialService);
 
   /** @ngInject */
   function AmChartSerialService() {
@@ -18,6 +18,9 @@
         "fontFamily": "sans",
         "fontSize": 13,
         "theme": "dark",
+        "chartScrollbar": {
+          "enabled": true
+        },
         "categoryAxis": {
           "boldPeriodBeginning": false,
           "firstDayOfWeek": 0,
@@ -33,32 +36,6 @@
           "graphBulletSize": 0
         },
         "trendLines": [],
-        "graphs": [
-          {
-            "balloonText": "[[value]]un",
-            "bullet": "round",
-            "dashLengthField": "dashLength",
-            "id": "AmGraph-1",
-            "lineAlpha": 1,
-            "lineThickness": 3,
-            "markerType": "square",
-            "title": "Ice Cream Sells",
-            "valueAxis": "ValueAxis-1",
-            "valueField": "Ice Cream Sells"
-          },
-          {
-            "balloonText": "[[value]]ºC",
-            "bullet": "round",
-            "dashLengthField": "dashLength",
-            "fillColorsField": "lineColor",
-            "id": "AmGraph-2",
-            "lineColorField": "lineColor",
-            "lineThickness": 3,
-            "title": "Weather",
-            "valueAxis": "ValueAxis-2",
-            "valueField": "Weather"
-          }
-        ],
         "guides": [],
         "allLabels": [],
         "balloon": {},

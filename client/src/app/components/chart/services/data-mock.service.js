@@ -16,6 +16,7 @@
       var obj = [
         {
           category: 'My Sells',
+          unit: 'k',
           data: [
             { date: 1455365898000, value: 124 },
             { date: 1455452328000, value: 225 },
@@ -56,6 +57,7 @@
         },
         {
           category: 'Weather',
+          unit: 'ºC',
           data: [
             { date: 1455365898000, value: 24 },
             { date: 1455452328000, value: 25 },
