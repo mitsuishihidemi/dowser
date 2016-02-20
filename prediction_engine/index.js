@@ -91,6 +91,7 @@ generatePrediction = function(graph,repetition_window){
 
 	console.log(chart(graph, { width: 180, height: 20 }));
 
+	return graph;
 
 }
 

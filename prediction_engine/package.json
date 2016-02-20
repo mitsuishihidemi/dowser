@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chart": "^0.1.2",
+    "chart": "jstrace/chart",
     "clear": "0.0.1"
   }
 }
