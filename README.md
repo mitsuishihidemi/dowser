@@ -1,2 +1,2 @@
 # dowser
-Prediction data for human beings
+Data prediction for human beings
