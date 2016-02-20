@@ -19,7 +19,7 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($element, ChartDataProvider) {
+    function ChartController($element, $filter, ChartDataProvider) {
       var vm = this;
 
       var chart;
@@ -35,7 +35,10 @@
                 format: '%m/%d'
               }
             }
-          }
+          },
+          regions: [
+            {axis: 'x', start: $filter('chartTimestamp')(Date.now()), class: 'predictionDivisor'}
+          ]
         });
       };
 
