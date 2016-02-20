@@ -5,6 +5,11 @@
 // bower:styl
 // endbower
 
+wrapper = 0 21px
+
+dark-gray-color = #263238
+white-color = #fff
+
 html, body, .app
   width 100%
   height 100%
@@ -15,6 +20,53 @@ body
 
 .app
   position relative
+
+.full-screen
+  display flex
+  flex-direction column
+  width 100%
+  height 100%
+
+.header
+  flex 0
+  margin wrapper
+
+.content
+  flex 1
+  margin wrapper
+
+  &-center
+    display flex
+    flex-direction column
+    justify-content center
+
+.footer
+  flex 0
+  text-align center
+  font-size 14px
+  margin 16px 0
+  color white-color
+
+.logo
+  color white-color
+
+.main
+  background-color dark-gray-color
+
+.opening
+  text-align center
+
+  &-title
+    margin 0 0 30px
+    color white-color
+
+  &-description
+    width 700px
+    margin 0 auto 50px
+    color white-color
+
+  &-button
+    padding 8px 32px
 
 // [ui-view].ng-enter, [ui-view].ng-leave
 //   position absolute
