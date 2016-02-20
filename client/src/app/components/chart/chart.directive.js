@@ -19,7 +19,7 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($element, $filter, ChartDataProvider) {
+    function ChartController($element, $rootScope, $filter, ChartDataProvider) {
       var vm = this;
 
       var chart;
@@ -37,12 +37,16 @@
             }
           },
           regions: [
-            {axis: 'x', start: $filter('chartTimestamp')(Date.now()), class: 'predictionDivisor'}
+            { axis: 'x', start: $filter('chartTimestamp')(Date.now()), class: 'predictionDivisor' }
           ]
         });
       };
 
-      ChartDataProvider.load().then(vm.render);
+      $rootScope.$on('chart:start', function() {
+        ChartDataProvider.load().then(vm.render);
+      });
+
+      $rootScope.$emit('chart:start');
     }
   }
 
