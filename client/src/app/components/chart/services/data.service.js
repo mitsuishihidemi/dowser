@@ -6,7 +6,7 @@
     .factory('ChartData', ChartData);
 
   /** @ngInject */
-  function ChartData($rootScope, Api, ChartDataMock, ChartDataParser) {
+  function ChartData($rootScope, Api, ChartDataMock) {
     var datas = [];
 
     return {
