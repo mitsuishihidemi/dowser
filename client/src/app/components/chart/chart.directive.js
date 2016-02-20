@@ -19,11 +19,13 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($element) {
-      var self = this;
+    function ChartController($element, ChartDataProvider) {
+      var vm = this;
 
-      self.render = function() {
-        var chart = c3.generate({
+      var chart;
+
+      vm.render = function(data) {
+        chart = c3.generate({
           bindto: $element.find('div')[0],
           data: {
             columns: [
@@ -32,9 +34,9 @@
             ]
           }
         });
-      }
+      };
 
-      self.render();
+      ChartDataProvider.load().then(vm.render);
     }
   }
 
