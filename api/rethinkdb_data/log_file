@@ -1,0 +1,140 @@
+2016-02-20T04:29:02.687492808 0.007351s notice: Recursively removing directory /home/mitsuishihidemi/rethinkdb-2.2.4/rethinkdb_data/tmp
+2016-02-20T04:29:02.691599471 0.011460s notice: Initializing directory /home/mitsuishihidemi/rethinkdb-2.2.4/rethinkdb_data
+2016-02-20T04:29:02.691788480 0.011643s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/mitsuishihidemi/rethinkdb-2.2.4/rethinkdb_data' did not already exist or is empty.)
+2016-02-20T04:29:02.691838132 0.011692s notice: Running rethinkdb 2.2.4 (GCC 4.8.4)...
+2016-02-20T04:29:02.698117821 0.017975s notice: Running on Linux 3.13.0-74-generic x86_64
+2016-02-20T04:29:02.698268262 0.018123s notice: Loading data from directory /home/mitsuishihidemi/rethinkdb-2.2.4/rethinkdb_data
+2016-02-20T04:29:02.715847367 0.035705s info: Automatically using cache size of 100 MB
+2016-02-20T04:29:02.716171376 0.036026s warn: Cache size does not leave much memory for server and query overhead (available memory: 919 MB).
+2016-02-20T04:29:02.716183574 0.036038s warn: Cache size is very low and may impact performance.
+2016-02-20T04:29:02.717130920 0.036985s notice: Listening for intracluster connections on port 29015
+2016-02-20T04:29:02.718310085 0.038164s notice: Listening for client driver connections on port 28015
+2016-02-20T04:29:02.718598153 0.038453s notice: Listening for administrative HTTP connections on port 8080
+2016-02-20T04:29:02.718600387 0.038454s notice: Listening on addresses: 127.0.0.1, ::1
+2016-02-20T04:29:02.718605175 0.038459s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-02-20T04:29:02.718609868 0.038464s notice: Server ready, "mitsuishihidemi_qvd" f5b3af7e-1ef4-47f9-bea0-36c7bf3f4f36
+2016-02-20T04:29:14.792220340 12.112075s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-02-20T04:29:14.792516128 12.112371s notice: Shutting down client connections...
+2016-02-20T04:29:14.792735144 12.112589s notice: All client connections closed.
+2016-02-20T04:29:14.792744373 12.112598s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-02-20T04:29:14.793137606 12.112992s notice: Storage engine shut down.
+2016-02-20T04:29:20.548105139 0.006202s notice: Running rethinkdb 2.2.4 (GCC 4.8.4)...
+2016-02-20T04:29:20.553724008 0.011818s notice: Running on Linux 3.13.0-74-generic x86_64
+2016-02-20T04:29:20.553874864 0.011965s notice: Loading data from directory /home/mitsuishihidemi/rethinkdb-2.2.4/rethinkdb_data
+2016-02-20T04:29:20.567131777 0.025226s info: Automatically using cache size of 100 MB
+2016-02-20T04:29:20.567408804 0.025499s warn: Cache size does not leave much memory for server and query overhead (available memory: 918 MB).
+2016-02-20T04:29:20.567420530 0.025511s warn: Cache size is very low and may impact performance.
+2016-02-20T04:29:20.578110689 0.036201s notice: Listening for intracluster connections on port 29015
+2016-02-20T04:29:20.579367102 0.037457s notice: Listening for client driver connections on port 28015
+2016-02-20T04:29:20.579690594 0.037781s notice: Listening for administrative HTTP connections on port 8080
+2016-02-20T04:29:20.580535315 0.038626s notice: Listening on addresses: 127.0.0.1, 158.85.206.13, 10.53.110.129, ::1, fe80::40e:5aff:fef3:250b%3, fe80::4d5:10ff:fe0c:4a56%2
+2016-02-20T04:29:20.580665174 0.038755s notice: Server ready, "mitsuishihidemi_qvd" f5b3af7e-1ef4-47f9-bea0-36c7bf3f4f36
+2016-02-20T04:29:59.497945927 38.956037s warn: Received invalid clustering header from [::ffff:187.35.20.106]:54036, closing connection -- something might be connecting to the wrong port.
+2016-02-20T04:30:12.940471779 52.398562s warn: Received invalid clustering header from [::ffff:187.35.20.106]:54037, closing connection -- something might be connecting to the wrong port.
+2016-02-20T04:33:23.018835720 242.476926s info: Table 94fabc7b-cc2e-4d0b-92aa-a1a94b963ac8: Added replica on this server.
+2016-02-20T04:33:24.690575945 244.148666s info: Table 94fabc7b-cc2e-4d0b-92aa-a1a94b963ac8: Starting a new Raft election for term 1.
+2016-02-20T04:33:24.691619934 244.149710s info: Table 94fabc7b-cc2e-4d0b-92aa-a1a94b963ac8: This server is Raft leader for term 1. Latest log index is 0.
+2016-02-20T04:33:55.596154589 275.054245s notice: Removing file /home/mitsuishihidemi/rethinkdb-2.2.4/rethinkdb_data/94fabc7b-cc2e-4d0b-92aa-a1a94b963ac8
+2016-02-20T04:33:55.596381289 275.054471s info: Table 94fabc7b-cc2e-4d0b-92aa-a1a94b963ac8: Deleted the table.
+2016-02-20T04:34:07.025720263 286.483811s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: Added replica on this server.
+2016-02-20T04:34:08.789599135 288.247690s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: Starting a new Raft election for term 1.
+2016-02-20T04:34:08.790638337 288.248729s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: This server is Raft leader for term 1. Latest log index is 0.
+2016-02-20T04:35:40.559966087 380.018057s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Added replica on this server.
+2016-02-20T04:35:41.896846834 381.354937s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Starting a new Raft election for term 1.
+2016-02-20T04:35:41.897891826 381.355982s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: This server is Raft leader for term 1. Latest log index is 0.
+2016-02-20T05:10:30.336755159 2469.794846s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-02-20T05:10:30.337026557 2469.795117s notice: Shutting down client connections...
+2016-02-20T05:10:30.337222070 2469.795312s notice: All client connections closed.
+2016-02-20T05:10:30.337363351 2469.795454s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-02-20T05:10:30.342213847 2469.800304s notice: Storage engine shut down.
+2016-02-20T05:10:31.972541531 0.008906s notice: Running rethinkdb 2.2.4 (GCC 4.8.4)...
+2016-02-20T05:10:31.978196945 0.014558s notice: Running on Linux 3.13.0-74-generic x86_64
+2016-02-20T05:10:31.978349544 0.014708s notice: Loading data from directory /home/mitsuishihidemi/rethinkdb-2.2.4/rethinkdb_data
+2016-02-20T05:10:32.013135353 0.049497s info: Automatically using cache size of 100 MB
+2016-02-20T05:10:32.013413703 0.049772s warn: Cache size does not leave much memory for server and query overhead (available memory: 892 MB).
+2016-02-20T05:10:32.013425249 0.049783s warn: Cache size is very low and may impact performance.
+2016-02-20T05:10:32.015501117 0.051859s notice: Listening for intracluster connections on port 29015
+2016-02-20T05:10:32.042663214 0.079021s notice: Listening for client driver connections on port 28015
+2016-02-20T05:10:32.042938243 0.079296s notice: Listening for administrative HTTP connections on port 8080
+2016-02-20T05:10:32.043688011 0.080046s notice: Listening on addresses: 127.0.0.1, 158.85.206.13, 10.53.110.129, ::1, fe80::40e:5aff:fef3:250b%3, fe80::4d5:10ff:fe0c:4a56%2
+2016-02-20T05:10:32.043814174 0.080172s notice: Server ready, "mitsuishihidemi_qvd" f5b3af7e-1ef4-47f9-bea0-36c7bf3f4f36
+2016-02-20T05:10:33.282758799 1.319117s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Starting a new Raft election for term 2.
+2016-02-20T05:10:33.283693803 1.320052s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: This server is Raft leader for term 2. Latest log index is 2.
+2016-02-20T05:10:33.925665507 1.962024s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: Starting a new Raft election for term 2.
+2016-02-20T05:10:33.926569255 1.962927s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: This server is Raft leader for term 2. Latest log index is 2.
+2016-02-20T06:38:08.596979701 5256.633338s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: Added replica on this server.
+2016-02-20T06:38:10.199854800 5258.236213s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: Starting a new Raft election for term 1.
+2016-02-20T06:38:10.200926084 5258.237284s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: This server is Raft leader for term 1. Latest log index is 0.
+2016-02-20T08:20:16.855118111 0.007803s notice: Running rethinkdb 2.2.4 (GCC 4.8.4)...
+2016-02-20T08:20:16.860816460 0.013498s notice: Running on Linux 3.13.0-74-generic x86_64
+2016-02-20T08:20:16.860967071 0.013645s notice: Loading data from directory /home/mitsuishihidemi/dowser/api/rethinkdb_data
+2016-02-20T08:20:16.875071160 0.027753s info: Automatically using cache size of 100 MB
+2016-02-20T08:20:16.875341546 0.028020s warn: Cache size does not leave much memory for server and query overhead (available memory: 814 MB).
+2016-02-20T08:20:16.875353066 0.028031s warn: Cache size is very low and may impact performance.
+2016-02-20T08:20:16.877431250 0.030109s notice: Listening for intracluster connections on port 29015
+2016-02-20T08:20:16.918261132 0.070939s notice: Listening for client driver connections on port 28015
+2016-02-20T08:20:16.918557939 0.071236s notice: Listening for administrative HTTP connections on port 8080
+2016-02-20T08:20:16.919302834 0.071981s notice: Listening on addresses: 127.0.0.1, 158.85.206.13, 10.53.110.129, ::1, fe80::40e:5aff:fef3:250b%3, fe80::4d5:10ff:fe0c:4a56%2
+2016-02-20T08:20:16.919688398 0.072366s notice: Server ready, "mitsuishihidemi_qvd" f5b3af7e-1ef4-47f9-bea0-36c7bf3f4f36
+2016-02-20T08:20:17.998312971 1.150991s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: Starting a new Raft election for term 2.
+2016-02-20T08:20:17.999268317 1.151946s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: This server is Raft leader for term 2. Latest log index is 2.
+2016-02-20T08:20:18.240947076 1.393625s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: Starting a new Raft election for term 3.
+2016-02-20T08:20:18.241765783 1.394444s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: This server is Raft leader for term 3. Latest log index is 5.
+2016-02-20T08:20:18.532003324 1.684681s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Starting a new Raft election for term 3.
+2016-02-20T08:20:18.532831311 1.685509s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: This server is Raft leader for term 3. Latest log index is 5.
+2016-02-20T08:47:11.018800208 1614.171479s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-02-20T08:47:11.019061895 1614.171740s notice: Shutting down client connections...
+2016-02-20T08:47:11.019249503 1614.171927s notice: All client connections closed.
+2016-02-20T08:47:11.019389005 1614.172067s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-02-20T08:47:11.026257529 1614.178935s notice: Storage engine shut down.
+2016-02-20T08:56:10.261931469 0.108120s error: Cannot access the pid-file directory.
+2016-02-20T08:56:18.721427347 0.003889s error: Cannot access the pid-file directory.
+2016-02-20T08:56:58.768258419 0.003419s error: Cannot access the pid-file directory.
+2016-02-20T08:57:47.785697436 0.003832s error: Cannot access the pid-file directory.
+2016-02-20T08:57:55.999911020 0.003136s error: Cannot access the pid-file directory.
+2016-02-20T08:59:52.065926691 0.003266s error: Cannot access the pid-file directory.
+2016-02-20T09:00:11.877520857 0.007922s error: Cannot access the pid-file directory.
+2016-02-20T09:00:30.584504163 0.003288s error: Cannot access the pid-file directory.
+2016-02-20T09:00:51.641311105 0.003717s error: Cannot access the pid-file directory.
+2016-02-20T09:01:44.729336583 0.003327s error: Cannot access the pid-file directory.
+2016-02-20T09:02:19.616178707 0.003333s error: Cannot access the pid-file directory.
+2016-02-20T09:02:54.629373430 0.015156s notice: Running rethinkdb 2.2.4~0trusty (GCC 4.8.2)...
+2016-02-20T09:02:54.635035818 0.020814s notice: Running on Linux 3.13.0-74-generic x86_64
+2016-02-20T09:02:54.635101353 0.020876s notice: Loading data from directory /home/mitsuishihidemi/dowser/api/rethinkdb_data
+2016-02-20T09:02:54.649512578 0.035292s info: Automatically using cache size of 100 MB
+2016-02-20T09:02:54.649822548 0.035598s warn: Cache size does not leave much memory for server and query overhead (available memory: 799 MB).
+2016-02-20T09:02:54.649834390 0.035609s warn: Cache size is very low and may impact performance.
+2016-02-20T09:02:54.650748086 0.036523s notice: Listening for intracluster connections on port 29015
+2016-02-20T09:02:54.697931726 0.083707s notice: Listening for client driver connections on port 28015
+2016-02-20T09:02:54.698181658 0.083957s notice: Listening for administrative HTTP connections on port 8080
+2016-02-20T09:02:54.698183955 0.083959s notice: Listening on addresses: 127.0.0.1, ::1
+2016-02-20T09:02:54.698185532 0.083960s notice: To fully expose RethinkDB on the network, bind to all addresses by adding `bind=all' to the config file (/etc/rethinkdb/instances.d/instance1.conf).
+2016-02-20T09:02:54.698187126 0.083962s notice: Server ready, "mitsuishihidemi_qvd" f5b3af7e-1ef4-47f9-bea0-36c7bf3f4f36
+2016-02-20T09:02:56.048614530 1.434390s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: Starting a new Raft election for term 4.
+2016-02-20T09:02:56.049709879 1.435485s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: This server is Raft leader for term 4. Latest log index is 8.
+2016-02-20T09:02:56.206469605 1.592245s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: Starting a new Raft election for term 3.
+2016-02-20T09:02:56.207396657 1.593172s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: This server is Raft leader for term 3. Latest log index is 5.
+2016-02-20T09:02:56.497146798 1.882922s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Starting a new Raft election for term 4.
+2016-02-20T09:02:56.498035794 1.883811s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: This server is Raft leader for term 4. Latest log index is 8.
+2016-02-20T09:03:54.998530521 60.384306s notice: Server got SIGINT from pid 22790, uid 0; shutting down...
+2016-02-20T09:03:54.998692007 60.384467s notice: Shutting down client connections...
+2016-02-20T09:03:54.998791222 60.384566s notice: All client connections closed.
+2016-02-20T09:03:54.998834876 60.384610s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-02-20T09:03:55.008472716 60.394248s notice: Storage engine shut down.
+2016-02-20T09:03:56.050523639 0.012916s notice: Running rethinkdb 2.2.4~0trusty (GCC 4.8.2)...
+2016-02-20T09:03:56.059140374 0.021529s notice: Running on Linux 3.13.0-74-generic x86_64
+2016-02-20T09:03:56.059207458 0.021593s notice: Loading data from directory /home/mitsuishihidemi/dowser/api/rethinkdb_data
+2016-02-20T09:03:56.073365877 0.035755s info: Automatically using cache size of 100 MB
+2016-02-20T09:03:56.073647964 0.036033s warn: Cache size does not leave much memory for server and query overhead (available memory: 799 MB).
+2016-02-20T09:03:56.073660030 0.036045s warn: Cache size is very low and may impact performance.
+2016-02-20T09:03:56.089207289 0.051592s notice: Listening for intracluster connections on port 29015
+2016-02-20T09:03:56.138785522 0.101171s notice: Listening for client driver connections on port 28015
+2016-02-20T09:03:56.139023359 0.101409s notice: Listening for administrative HTTP connections on port 8080
+2016-02-20T09:03:56.140799978 0.103185s notice: Listening on addresses: 127.0.0.1, 158.85.206.13, 10.53.110.129, ::1, fe80::40e:5aff:fef3:250b%3, fe80::4d5:10ff:fe0c:4a56%2
+2016-02-20T09:03:56.140860054 0.103245s notice: Server ready, "mitsuishihidemi_qvd" f5b3af7e-1ef4-47f9-bea0-36c7bf3f4f36
+2016-02-20T09:03:57.516653676 1.479039s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: Starting a new Raft election for term 5.
+2016-02-20T09:03:57.517711280 1.480097s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: This server is Raft leader for term 5. Latest log index is 11.
+2016-02-20T09:03:57.595457488 1.557843s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Starting a new Raft election for term 5.
+2016-02-20T09:03:57.596340789 1.558726s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: This server is Raft leader for term 5. Latest log index is 11.
+2016-02-20T09:03:58.007547623 1.969933s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: Starting a new Raft election for term 4.
+2016-02-20T09:03:58.008485124 1.970870s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: This server is Raft leader for term 4. Latest log index is 8.

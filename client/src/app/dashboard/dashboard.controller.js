@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController() {
-
+  function DashboardController(ChartData) {
+    ChartData.load();
   }
 })();

@@ -19,7 +19,7 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($element, ChartDataProvider) {
+    function ChartController($element, $rootScope, $filter) {
       var vm = this;
 
       var chart;
@@ -27,16 +27,27 @@
       vm.render = function(data) {
         chart = c3.generate({
           bindto: $element.find('div')[0],
-          data: {
-            columns: [
-              ['data1', 30, 200, 100, 400, 150, 250],
-              ['data2', 50, 20, 10, 40, 15, 25]
-            ]
-          }
+          data: data,
+          axis: {
+            x: {
+              type: 'timeseries',
+              tick: {
+                format: '%m/%d'
+              }
+            }
+          },
+          regions: [
+            { axis: 'x', start: $filter('chartTimestamp')(Date.now()), class: 'predictionDivisor' }
+          ]
         });
       };
 
-      ChartDataProvider.load().then(vm.render);
+      $rootScope.$on('chart:load', function(evt, data) {
+        if (!chart) {
+          return vm.render(data);
+        }
+
+      });
     }
   }
 
