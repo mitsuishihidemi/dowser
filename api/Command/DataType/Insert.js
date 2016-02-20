@@ -6,21 +6,23 @@ var Insert = function(storage) {
 
 Insert.prototype.execute = function(data, callback) {
     var callback = callback || function(){};
+    var self = this;
+
     this.type = new Type(data);
 
-    var error = this.type.getError();
+    var error = this.type.getErrors();
     if(error) {
          callback(error);
     }
 
-    storage.table(this.type.name).data(this.type.get()).save(function(result){
-        var points = this.type.getPoints();
-
+    this.storage.setTable(this.type.name).setData(this.type.get()).save(function(error, result){
+        var points = self.type.getPoints();
+        
         for(var i = 0; i < points.length; i++){
             var point = points[i];
             point.setDataTypeId(result.generated_keys[0]);
-
-            storage.table(point.name).data(point.get()).save(callback);
+            
+            self.storage.setTable(point.name).setData(point.get()).save(callback);
         }
     });
 }

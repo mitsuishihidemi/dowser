@@ -25,8 +25,8 @@ Server.prototype.addRoutes = function() {
     this.server.post('/' + this.commandFactory.ROUTE_DATA_TYPE_INSERT, function (req, res, next) {
         var insertCommand = self.commandFactory.create(self.commandFactory.ROUTE_DATA_TYPE_INSERT);  
         
-        insertCommand.execute(req.params, function(data){
-           res.send(data);
+        insertCommand.execute(req.params, function(error, data){
+           res.send(error || data);
         });
 
         return next();
