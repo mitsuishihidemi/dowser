@@ -35,61 +35,9 @@
         }
       };
 
-      $rootScope.$on('amchart:load', function(evt, data) {
+      $rootScope.$on('chart:load', function(evt, data) {
         $timeout(function() { vm.makeChart(data); });
       });
-
-      $rootScope.$emit('amchart:load', [
-        {
-          "date": "2016-02-15",
-          "Ice Cream Sells": "200",
-          "Weather": "10"
-        },
-        {
-          "date": "2016-02-16",
-          "Weather": "15"
-        },
-        {
-          "date": "2016-02-17",
-          "Ice Cream Sells": "800",
-          "Weather": "25"
-        },
-        {
-          "date": "2016-02-18",
-          "Ice Cream Sells": "600",
-          "Weather": "27"
-        },
-        {
-          "date": "2016-02-19",
-          "Ice Cream Sells": "500",
-          "Weather": "30"
-        },
-        {
-          "date": "2016-02-20",
-          "dashLength": 8,
-          "Ice Cream Sells": "100",
-          "Weather": "30"
-        },
-        {
-          "date": "2016-02-21",
-          "Ice Cream Sells": "200",
-          "Weather": "18"
-        },
-        {
-          "date": "2016-02-22",
-          "Ice Cream Sells": "300",
-          "Weather": "25"
-        },
-        {
-          "date": "2016-02-23",
-          "Ice Cream Sells": "600"
-        },
-        {
-          "date": "2016-02-25",
-          "Ice Cream Sells": "300",
-          "Weather": "28"
-        }
-      ]);
     }
   }
 
