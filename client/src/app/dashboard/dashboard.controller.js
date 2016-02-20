@@ -7,12 +7,12 @@
 
   /** @ngInject */
   function DashboardController($timeout, ChartData) {
+    var vm = this;
+
     ChartData.load('My Sells');
-    $timeout(function() {
-      ChartData.load('Ice Cream Sells');
-    }, 3000);
-    $timeout(function() {
-      ChartData.load('Weather');
-    }, 5000);
+
+    vm.addChart = function(category) {
+      ChartData.load(category);
+    };
   }
 })();
