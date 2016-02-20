@@ -19,7 +19,7 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($timeout, $element) {
+    function ChartController($element) {
       var self = this;
 
       self.render = function() {
