@@ -11,10 +11,10 @@
       load: load
     };
 
-    function load(identifier, category) {
-      Api.__get('Chart/Data/' + category)
+    function load(identifier, name) {
+      Api.__get('DataType/Get/' + identifier)
         .then(function() {
-          var data = ChartDataMock.get(category);
+          var data = ChartDataMock.get();
           $rootScope.$emit('chart:' + identifier + ':load', data);
         });
     }

@@ -8,7 +8,7 @@
   /** @ngInject */
   function Api($timeout, $http, $log) {
 
-    var url = 'http://158.85.199.5:3002/';
+    var url = 'http://158.85.199.5:8081/';
 
     return {
       __get: __get,

@@ -6,31 +6,45 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($timeout, $state, ChartData) {
+  function DashboardController($timeout, $state, ChartData, User) {
     var vm = this;
 
     vm.inputSearch = '';
-    vm.chartList = [
-      { dataName: 'Test' }
-    ];
-    vm.comparableCharts = [
-      { identifier: 'weather', dataName: 'Weather'},
-      { identifier: 'ice-cream-sells', dataName: 'Ice Cream Sells'}
-    ];
+    vm.mainChart = {};
+    vm.chartList = [];
+    vm.comparableCharts = [];
 
-    ChartData.load('main', 'My Sells');
-    vm.comparableCharts.forEach(function(comparableChartsItem) {
-      ChartData.load(comparableChartsItem.identifier, comparableChartsItem.dataName);
-    });
+    vm.loadMyChart = function() {
+      ChartData.load(vm.mainChart.id, vm.mainChart.name);
+    };
+
+    vm.loadComparableCharts = function() {
+      vm.comparableCharts.forEach(function(comparableChartsItem, index) {
+        $timeout(function() {
+          ChartData.load(comparableChartsItem.id, comparableChartsItem.name);
+        }, 3000 * index);
+      });
+    };
 
     vm.addNewChart = function() {
       $timeout(function () {
         $state.go('wizard.register');
       }, 500);
-    }
-
-    vm.addChart = function(category) {
-      ChartData.load('main', category);
     };
+
+    // vm.addChart = function(category) {
+    //   ChartData.load('main', category);
+    // };
+
+    vm.initialize = function() {
+      User.loadData().then(function() {
+        vm.chartList = User.myData;
+        vm.comparableCharts = User.notMyData;
+        vm.mainChart = vm.chartList[0];
+        vm.loadMyChart();
+      });
+    };
+
+    vm.initialize();
   }
 })();
