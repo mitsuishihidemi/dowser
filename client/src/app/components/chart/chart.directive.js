@@ -21,29 +21,22 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($scope, $rootScope, $timeout, AmChartOptions) {
+    function ChartController($scope, $rootScope, $timeout, AmChartOptions, AmChartDataStore) {
       var vm = this;
 
       vm.chartId = 'chart-' + vm.identifier
-      vm.data = [];
+      vm.dataStore = new AmChartDataStore();
 
       vm.renderChart = function() {
         if (AmCharts.isReady) {
-          var chart = new AmChartOptions(vm.identifier, vm.data);
+          var chart = new AmChartOptions(vm.identifier, vm.dataStore.get());
           return AmCharts.makeChart(vm.chartId, chart);
         }
         AmCharts.ready(vm.renderChart);
       };
 
-      vm.addData = function(data) {
-        if (!angular.isArray(data)) {
-          return vm.data.push(data);
-        }
-        data.forEach(function(d) { vm.data.push(d); });
-      };
-
       vm.event = $rootScope.$on('chart:' + vm.identifier + ':load', function(evt, data) {
-        vm.addData(data);
+        vm.dataStore.add(data);
         $timeout(vm.renderChart);
       });
     }

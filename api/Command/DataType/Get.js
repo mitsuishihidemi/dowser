@@ -1,8 +1,9 @@
 var Type = require('./Entity/Type');
 var Point = require('./Entity/Point');
 
-var Get = function(storage) {
+var Get = function(storage, api) {
     this.storage = storage;
+    this.api = api;
 }
 
 Get.prototype.execute = function(id, callback) {
@@ -31,9 +32,11 @@ Get.prototype.execute = function(id, callback) {
                         return;
                     }
 
-                    resultType[0].points = resultPoint;
-
-                    callback(null, resultType[0]);
+                    api.getProjection(resultPoint, function(projected) {
+                        resultWithProjected = resultPoint.concat(projected);
+                        resultType[0].points = resultWithProjected;
+                        callback(null, resultType[0]);
+                    });
                 });
             });
         });

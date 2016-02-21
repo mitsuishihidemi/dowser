@@ -6,8 +6,12 @@
   .factory('AmChartDataStore', AmChartDataStore);
 
   /** @ngInject */
-  function AmChartDataStore(AmChartParser) {
+  function AmChartDataStore() {
     function AmChartDataStore(data) {
+      if (!data) {
+        data = [];
+      }
+
       if (!angular.isArray(data)) {
         data = [data];
       }
@@ -16,14 +20,27 @@
     }
 
     AmChartDataStore.prototype.get = function() {
-      return new AmChartParser(this.data).parse();
+      return this.data;
+    };
+
+    AmChartDataStore.prototype.__add = function(data) {
+      var index = 1;
+      var categoryName = data.category;
+      this.data.forEach(function(d) {
+        if (d.category == categoryName) {
+          categoryName = data.category + ' ' + ++index;
+        }
+      });
+      data.category = categoryName;
+      this.data.push(data);
     };
 
     AmChartDataStore.prototype.add = function(data) {
       if (!angular.isArray(data)) {
-        return this.data.push(data);
+        this.__add(data);
+      } else {
+        data.forEach(function(d) { this.__add(d); });
       }
-      data.forEach(this.data.push);
     };
 
     return AmChartDataStore;

@@ -14,14 +14,14 @@
     vm.chartList = [];
     vm.comparableCharts = [];
 
-    vm.loadMyChart = function() {      
-      ChartData.load(vm.mainChart.id, vm.mainChart.name);
+    vm.loadMyChart = function() {
+      ChartData.load(vm.mainChart.id);
     };
 
     vm.loadComparableCharts = function() {
       vm.comparableCharts.forEach(function(comparableChartsItem, index) {
         $timeout(function() {
-          ChartData.load(comparableChartsItem.id, comparableChartsItem.name);
+          ChartData.load(comparableChartsItem.id);
         }, 3000 * index);
       });
     };
