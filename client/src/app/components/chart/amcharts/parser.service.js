@@ -54,6 +54,9 @@
         set.data.forEach(function(data) {
           var date = data.date.format('YYYY-MM-DD');
           if (self.results[date]) {
+            if (self.results[date][set.category]) {
+              return self.results[date][set.category] += data.value;
+            }
             return self.results[date][set.category] = data.value;
           }
           self.results[date] = new Result(set.category, data.date, data.value);
