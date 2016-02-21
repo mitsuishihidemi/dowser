@@ -9,10 +9,10 @@
   function Particles() {
 
     return {
-      run: run
+      start: start
     };
 
-    function run(elementId) {
+    function start(elementId) {
       particlesJS(elementId, {
         "particles": {
           "number": {
