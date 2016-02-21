@@ -10,6 +10,7 @@
     "module": true,
     "inject": true,
     "AmCharts": true,
-    "moment": true
+    "moment": true,
+    "particlesJS": true
   }
 }
