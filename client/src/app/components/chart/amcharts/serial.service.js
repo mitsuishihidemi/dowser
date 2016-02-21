@@ -48,7 +48,8 @@
         "balloon": {},
         "legend": {
           "enabled": true,
-          "useGraphSettings": true
+          "useGraphSettings": true,
+          "valueText": ""
         },
         "titles": []
       };
