@@ -15,9 +15,7 @@
     ];
     vm.comparableCharts = [
       { identifier: 'weather', dataName: 'Weather'},
-      { identifier: 'ice-cream-sells', dataName: 'Ice Cream Sells'},
-      { identifier: 'economic-crisis', dataName: 'Economic Crisis'},
-      { identifier: 'birth-of-children', dataName: 'Birth of Children' }
+      { identifier: 'ice-cream-sells', dataName: 'Ice Cream Sells'}
     ];
 
     vm.comparableCharts.forEach(function(comparableChartsItem) {

@@ -19,12 +19,8 @@
     <div class="comparable-charts">
       <div ng-repeat="comparableChartItem in dashboard.comparableCharts" class="comparable-chart-item">
         <h4 class="md-subhead">{{ comparableChartItem.dataName }}</h4>
-        <div class="simple-chart" ng-click="dashboard.addChart('Ice Cream Sells')">
-          <chart-mini identifier="{{ comparableChartItem.identifier }}"></chart-mini>
-        </div>
+        <chart-mini ng-click="dashboard.addChart(comparableChartItem.identifier)" identifier="{{ comparableChartItem.identifier }}"></chart-mini>
       </div>
     </div>
   </div>
 </div>
-<!-- <md-button class="md-raised" ng-click="dashboard.addChart('Ice Cream Sells')">Add Ice Cream</md-button>
-<md-button class="md-raised" ng-click="dashboard.addChart('Weather')">Add Weather</md-button> -->
