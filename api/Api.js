@@ -11,7 +11,6 @@ Api.prototype.getProjection = function(points, callback) {
     
     self.call(parsedPoints, function(projectedPoints){
         projectedPoints = self.parseToData(projectedPoints);
-console.log(projectedPoints);
         callback(projectedPoints);
     });
 }
@@ -41,7 +40,7 @@ Api.prototype.parseToData = function(points) {
     for(var i = 0; i < points.length; i++) {
         var point = {
             "date" : dateFuture,
-            "value" : points[i]
+            "value" : (points[i]).toFixed(2)
         }
 
         parsed[i] = point;

@@ -19,11 +19,15 @@ def make_projection(projection_type):
     # get predictor
     predictor = PredictorFactory.get_predictor(projection_type)
 
-    # exec predictor
-    result = predictor.predict(data, window)
+    try:
+        # exec predictor
+        result = predictor.predict(data, window)
 
-    # format result
-    response.content_type = 'application/json'
-    return json.dumps(result)
+        # format result
+        response.content_type = 'application/json'
+        return json.dumps(result)
+    except ValueError as e:
+        response.status = 500
+        return e
 
-run(host='localhost', port=8080)
+run(host='localhost', port=8085)
