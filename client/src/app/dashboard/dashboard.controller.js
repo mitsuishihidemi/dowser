@@ -20,6 +20,7 @@
       { identifier: 'birth-of-children', dataName: 'Birth of Children' }
     ];
 
+    ChartData.load('main', 'My Sells');
     vm.comparableCharts.forEach(function(comparableChartsItem) {
       ChartData.load(comparableChartsItem.identifier, comparableChartsItem.dataName);
     });
