@@ -39,6 +39,7 @@
         "chartCursor": {
           "enabled": true,
           "balloonPointerOrientation": "horizontal",
+          "cursorPosition": "mouse",
           "bulletSize": 5,
           "animationDuration": 0.3,
           "categoryBalloonDateFormat": "MMM DD",
