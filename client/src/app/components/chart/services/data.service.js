@@ -14,7 +14,7 @@
     };
 
     function load(category) {
-      Api.get('/chart/data/' + category, function(response) {
+      Api.get('/chart/data/' + category, function() {
         datas.push(ChartDataMock.get(category));
         $rootScope.$emit('chart:load', datas);
       });

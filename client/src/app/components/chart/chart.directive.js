@@ -35,7 +35,7 @@
         }
       };
 
-      $rootScope.$on('chart:load', function(evt, data) {
+      vm.event = $rootScope.$on('chart:load', function(evt, data) {
         $timeout(function() { vm.makeChart(data); });
       });
     }

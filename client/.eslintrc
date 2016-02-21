@@ -9,6 +9,7 @@
     "angular": true,
     "module": true,
     "inject": true,
-    "AmCharts": true
+    "AmCharts": true,
+    "moment": true
   }
 }
