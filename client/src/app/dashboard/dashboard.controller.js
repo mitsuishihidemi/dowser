@@ -14,7 +14,7 @@
     vm.chartList = [];
     vm.comparableCharts = [];
 
-    vm.loadMyChart = function() {
+    vm.loadMyChart = function() {      
       ChartData.load(vm.mainChart.id, vm.mainChart.name);
     };
 
@@ -32,8 +32,9 @@
       }, 500);
     };
 
-    vm.setMainChart = function() {
-      
+    vm.setMainChart = function(chart) {
+      vm.mainChart = chart;
+      vm.loadMyChart();
     };
 
     vm.addChart = function(id) {
