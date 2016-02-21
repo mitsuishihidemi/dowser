@@ -5,10 +5,10 @@
     .module('dowser')
     .controller('AgreementController', AgreementController);
 
-  AgreementController.$inject = ['$state', '$timeout'];
+  AgreementController.$inject = ['$rootScope', '$state', '$timeout'];
 
   /** @ngInject */
-  function AgreementController($state, $timeout) {
+  function AgreementController($rootScope, $state, $timeout) {
     var vm = this;
 
     vm.accept = debounce(function() {
@@ -20,8 +20,12 @@
     });
 
     function debounce(callback) {
+      $rootScope.$emit('wizard:progress');
       return function() {
-        $timeout(callback, 500);
+        $timeout(function() {
+          $rootScope.$emit('wizard:progress');
+          callback();
+        }, 1000);
       };
     }
   }
