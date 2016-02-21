@@ -26,7 +26,7 @@
     AmChartDataStore.prototype.__add = function(data) {
       var index = 1;
       var categoryName = data.category;
-      this.data.forEach(function(d, idx) {
+      this.data.forEach(function(d) {
         if (d.category == categoryName) {
           categoryName = data.category + ' ' + ++index;
         }

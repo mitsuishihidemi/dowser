@@ -6,7 +6,7 @@
     .factory('ChartData', ChartData);
 
   /** @ngInject */
-  function ChartData($rootScope, Api, ChartDataMock) {
+  function ChartData($rootScope, Api) {
     return {
       load: load,
       loadOn: loadOn
@@ -25,7 +25,7 @@
       };
     }
 
-    function load(identifier, name) {
+    function load(identifier) {
       Api.get('DataType/Get/' + identifier)
         .then(function(response) {
           var data = parseData(response.data);
@@ -33,7 +33,7 @@
         });
     }
 
-    function loadOn(containerIdentifier, identifier, name) {
+    function loadOn(containerIdentifier, identifier) {
       Api.get('DataType/Get/' + identifier)
         .then(function(response) {
           var data = parseData(response.data);
