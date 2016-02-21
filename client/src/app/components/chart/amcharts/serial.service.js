@@ -10,7 +10,7 @@
     function AmChartSerial() {
       return {
         "type": "serial",
-        "creditsPosition": "top-right",
+        "creditsPosition": "bottom-right",
         "categoryField": "date",
         "dataDateFormat": AmChartFormats.date,
         "angle": 21,
