@@ -140,3 +140,4 @@
 2016-02-20T09:03:58.008485124 1.970870s info: Table d0027c0e-2ca5-4965-8f6a-ea030115253d: This server is Raft leader for term 4. Latest log index is 8.
 2016-02-20T12:10:23.917053060 11187.879450s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
 2016-02-20T12:10:24.258568122 11188.220954s notice: Someone asked for the nonwhitelisted file "/sitemap.xml".  If this should be accessible, add it to the static web assets.
+2016-02-20T18:10:22.890873380 32786.853259s notice: Someone asked for the nonwhitelisted file "/myadmin/scripts/setup.php".  If this should be accessible, add it to the static web assets.

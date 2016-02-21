@@ -4,7 +4,7 @@ var Point = function(data) {
     this.validate();
 }
 
-Point.prototype.name = "dataPoints";
+Point.prototype.ALIAS = "dataPoints";
 
 Point.prototype.validate = function() {
     

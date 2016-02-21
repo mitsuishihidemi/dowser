@@ -15,14 +15,14 @@ Insert.prototype.execute = function(data, callback) {
          callback(error);
     }
 
-    this.storage.setTable(this.type.name).setData(this.type.get()).save(function(error, result){
+    this.storage.setTable(this.type.ALIAS).setData(this.type.get()).save(function(error, result){
         var points = self.type.getPoints();
-        
+        console.log(error, result);
         for(var i = 0; i < points.length; i++){
             var point = points[i];
             point.setDataTypeId(result.generated_keys[0]);
             
-            self.storage.setTable(point.name).setData(point.get()).save(callback);
+            self.storage.setTable(point.ALIAS).setData(point.get()).save(callback);
         }
     });
 }
