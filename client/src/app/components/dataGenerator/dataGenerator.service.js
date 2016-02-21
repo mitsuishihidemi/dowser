@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function DataGenerator() {
+    var days = 30;
 
     return {
       generate: generate
@@ -15,25 +16,25 @@
     function generate() {
       var data = [];
 
-      for (var i = 0; i <= 10; i++) {
-        var item = createItem();
+      for (var i = 0; i < days; i++) {
+        var item = createItem(i);
         data.push(item);
       }
 
       return data;
     }
 
-    function createItem() {
+    function createItem(i) {
       var item = {};
-      item.date = createTimeStamp();
-      item.value = randomNumber(1, 10);
+      item.date = createTimeStamp(i);
+      item.value = randomNumber(1, 100);
       return item;
     }
 
-    function createTimeStamp() {
+    function createTimeStamp(i) {
       var today = moment();
-      var startDate = today.clone().subtract(10);
-      return +moment(startDate + Math.random() * (today - startDate));
+      var startDate = today.clone().subtract(days - i, 'days');
+      return +moment(startDate);
     }
 
     function randomNumber(start, end) {
