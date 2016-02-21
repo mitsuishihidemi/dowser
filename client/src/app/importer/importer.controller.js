@@ -38,13 +38,13 @@
     }
 
     function addPrefixComment(data) {
-      var stringfyData = JSON.stringify(data, null, 2);
+      var stringfyData = angular.toJson(data, 2);
       return comment.concat(stringfyData);
     }
 
     function removePrefixComment(stringfyData) {
       var data = stringfyData.replace(comment, '');
-      return JSON.parse(data);
+      return angular.fromJson(data);
     }
   }
 })();

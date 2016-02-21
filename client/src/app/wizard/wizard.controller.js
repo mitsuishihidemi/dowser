@@ -12,9 +12,9 @@
     vm.progress = false;
     vm.progressClass = 'progress-hide';
 
-    $rootScope.$on('wizard:progress', function() {
+    vm.event = $rootScope.$on('wizard:progress', function() {
       vm.progress = !vm.progress;
-      vm.progressClass = vm.progress ? 'progress-show' : 'progress-hide';      
+      vm.progressClass = vm.progress ? 'progress-show' : 'progress-hide';
     });
 
     $state.go('wizard.register');
