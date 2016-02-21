@@ -2,17 +2,17 @@
   'use strict';
 
   angular
-  .module('dowser')
-  .factory('AmChartSerial', AmChartSerialService);
+    .module('dowser')
+    .factory('AmChartSerial', AmChartSerialService);
 
   /** @ngInject */
-  function AmChartSerialService() {
+  function AmChartSerialService(AmChartFormats) {
     function AmChartSerial() {
       return {
         "type": "serial",
         "creditsPosition": "top-right",
         "categoryField": "date",
-        "dataDateFormat": "YYYY-MM-DD",
+        "dataDateFormat": AmChartFormats.date,
         "angle": 21,
         "addClassNames": true,
         "fontFamily": "sans",
@@ -21,44 +21,27 @@
         "categoryAxis": {
           "boldPeriodBeginning": false,
           "firstDayOfWeek": 0,
-          "parseDates": true,
+          "parseDates": false,
           "axisThickness": 0,
-          "gridThickness": 0
+          "gridThickness": 0,
+          "guides": [
+            {
+              "category": moment().format(AmChartFormats.date),
+              "lineColor": "#CCCCCC",
+              "lineAlpha": 0.3,
+              "lineThickness": 2,
+              "dashLength": AmChartFormats.dashLength
+            }
+          ]
         },
         "chartCursor": {
           "enabled": true,
-          "balloonPointerOrientation": " vertical",
+          "balloonPointerOrientation": "horizontal",
           "bulletSize": 5,
-          "categoryBalloonDateFormat": "MMM DD",
+          "categoryBalloonDateFormat": AmChartFormats.date,
           "graphBulletSize": 0
         },
         "trendLines": [],
-        "graphs": [
-          {
-            "balloonText": "[[value]]un",
-            "bullet": "round",
-            "dashLengthField": "dashLength",
-            "id": "AmGraph-1",
-            "lineAlpha": 1,
-            "lineThickness": 3,
-            "markerType": "square",
-            "title": "Ice Cream Sells",
-            "valueAxis": "ValueAxis-1",
-            "valueField": "Ice Cream Sells"
-          },
-          {
-            "balloonText": "[[value]]ºC",
-            "bullet": "round",
-            "dashLengthField": "dashLength",
-            "fillColorsField": "lineColor",
-            "id": "AmGraph-2",
-            "lineColorField": "lineColor",
-            "lineThickness": 3,
-            "title": "Weather",
-            "valueAxis": "ValueAxis-2",
-            "valueField": "Weather"
-          }
-        ],
         "guides": [],
         "allLabels": [],
         "balloon": {},
