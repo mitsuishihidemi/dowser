@@ -73,7 +73,9 @@
 
     AmChartParser.prototype.__addDashedOnToday = function() {
       var today = moment().format('YYYY-MM-DD');
-      this.results[today]['dashLength'] = AmChartFormats.dashLength;
+      if (this.results[today]) {
+        this.results[today]['dashLength'] = AmChartFormats.dashLength;
+      }
     };
 
     AmChartParser.prototype.__convertResultsToArray = function() {
