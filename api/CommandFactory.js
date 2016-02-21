@@ -3,8 +3,10 @@ var DataTypeGet = require('./Command/DataType/Get');
 var DataTypeGetByUser = require('./Command/DataType/GetByUser');
 var DataTypeGetByNotUser = require('./Command/DataType/GetByNotUser');
 
-var CommandFactory = function(storage) {
+var CommandFactory = function(storage, api) {
     this.storage = storage;
+    this.api = api;
+    
     this.commands = {}; 
     this.commands[CommandFactory.prototype.ROUTE_DATA_TYPE_INSERT] =  DataTypeInsert;
     this.commands[CommandFactory.prototype.ROUTE_DATA_TYPE_GET] =  DataTypeGet;
@@ -19,7 +21,7 @@ CommandFactory.prototype.ROUTE_DATA_TYPE_GET_BY_NOT_USER = 'DataType/GetByNotUse
 
 CommandFactory.prototype.create = function(command) {
     if(this.commands[command]) {
-         return new this.commands[command](this.storage); 
+         return new this.commands[command](this.storage, this.api); 
     }
 
     throw new Error("Command not exist"); 
