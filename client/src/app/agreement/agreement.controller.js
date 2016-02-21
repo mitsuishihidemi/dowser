@@ -5,27 +5,28 @@
     .module('dowser')
     .controller('AgreementController', AgreementController);
 
-  AgreementController.$inject = ['$rootScope', '$state', '$timeout'];
+  AgreementController.$inject = ['$rootScope', '$state', '$timeout', 'Api'];
 
   /** @ngInject */
-  function AgreementController($rootScope, $state, $timeout) {
+  function AgreementController($rootScope, $state, $timeout, Api) {
     var vm = this;
 
     vm.accept = debounce(function() {
-      $state.go('dashboard');
+      Api.post('ageement', {}, function() {
+        $rootScope.$emit('wizard:progress');
+        $state.go('dashboard');
+      });
     });
 
     vm.deny = debounce(function() {
+      $rootScope.$emit('wizard:progress');
       $state.go('main');
     });
 
     function debounce(callback) {
-      $rootScope.$emit('wizard:progress');
       return function() {
-        $timeout(function() {
-          $rootScope.$emit('wizard:progress');
-          callback();
-        }, 1000);
+        $rootScope.$emit('wizard:progress');
+        $timeout(callback, 500);
       };
     }
   }
