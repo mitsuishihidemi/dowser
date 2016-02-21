@@ -6,7 +6,7 @@
     .factory('AmChartParser', AmChartParserService);
 
   /** @ngInject */
-  function AmChartParserService($filter) {
+  function AmChartParserService($filter, AmChartFormats) {
     function Result(category, date, value) {
       var result = {};
       result.date = date;
@@ -35,7 +35,7 @@
 
     AmChartParser.prototype.__formatResultDates = function() {
       this.results.forEach(function(result) {
-        result.date = result.date.format('YYYY-MM-DD');
+        result.date = result.date.format(AmChartFormats.date);
       });
     };
 
@@ -63,7 +63,7 @@
 
     AmChartParser.prototype.__addDashedOnToday = function() {
       var today = moment().format('YYYY-MM-DD');
-      this.results[today]['dashLength'] = 7;
+      this.results[today]['dashLength'] = AmChartFormats.dashLength;
     };
 
     AmChartParser.prototype.__convertResultsToArray = function() {

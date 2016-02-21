@@ -6,13 +6,13 @@
     .factory('AmChartSerial', AmChartSerialService);
 
   /** @ngInject */
-  function AmChartSerialService() {
+  function AmChartSerialService(AmChartFormats) {
     function AmChartSerial() {
       return {
         "type": "serial",
         "creditsPosition": "top-right",
         "categoryField": "date",
-        "dataDateFormat": "YYYY-MM-DD",
+        "dataDateFormat": AmChartFormats.date,
         "angle": 21,
         "addClassNames": true,
         "fontFamily": "sans",
@@ -21,15 +21,24 @@
         "categoryAxis": {
           "boldPeriodBeginning": false,
           "firstDayOfWeek": 0,
-          "parseDates": true,
+          "parseDates": false,
           "axisThickness": 0,
-          "gridThickness": 0
+          "gridThickness": 0,
+          "guides": [
+            {
+              "category": moment().format(AmChartFormats.date),
+              "lineColor": "#CCCCCC",
+              "lineAlpha": 0.3,
+              "lineThickness": 2,
+              "dashLength": AmChartFormats.dashLength
+            }
+          ]
         },
         "chartCursor": {
           "enabled": true,
           "balloonPointerOrientation": "horizontal",
           "bulletSize": 5,
-          "categoryBalloonDateFormat": "MMM DD",
+          "categoryBalloonDateFormat": AmChartFormats.date,
           "graphBulletSize": 0
         },
         "trendLines": [],
