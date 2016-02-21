@@ -7,19 +7,19 @@
       </div>
       <ul class="chart-list">
         <li class="chart-item chart-item-active" ng-repeat="chartItem in dashboard.chartList track by $index">
-          {{ chartItem.dataName }}
+          {{ chartItem.name }}
         </li>
       </ul>
     </div>
   </div>
   <div class="content">
-    <h2 class="md-headline">Test x Days</h2>
-    <chart identifier="main"></chart>
+    <h2 class="md-headline">{{ dashboard.mainChart.name }}</h2>
+    <chart ng-if="dashboard.mainChart.id" identifier="{{ dashboard.mainChart.id }}"></chart>
     <h3 class="md-title">Comparable Charts</h2>
     <div class="comparable-charts">
       <div ng-repeat="comparableChartItem in dashboard.comparableCharts" class="comparable-chart-item">
-        <h4 class="md-subhead">{{ comparableChartItem.dataName }}</h4>
-        <chart-mini ng-click="dashboard.addChart(comparableChartItem.dataName)" identifier="{{ comparableChartItem.identifier }}"></chart-mini>
+        <h4 class="md-subhead">{{ comparableChartItem.name }}</h4>
+        <chart-mini ng-click="dashboard.addChart(comparableChartItem.id)" identifier="{{ comparableChartItem.id }}"></chart-mini>
       </div>
     </div>
   </div>

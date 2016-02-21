@@ -5,16 +5,14 @@
     .module('dowser')
     .controller('RegisterController', RegisterController);
 
-  RegisterController.$inject = ['$rootScope', '$timeout', '$state'];
-
   /** @ngInject */
-  function RegisterController($rootScope, $timeout, $state) {
+  function RegisterController($rootScope, $timeout, $state, User) {
     var vm = this;
 
     vm.data = {
       name: undefined,
       kind: undefined,
-      userId: 'user'
+      userId: User.username
     };
 
     vm.next = function() {

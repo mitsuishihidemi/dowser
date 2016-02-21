@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($rootScope, $timeout, AmChartOptions) {
+    function ChartController($scope, $rootScope, $timeout, AmChartOptions) {
       var vm = this;
 
       vm.chartId = 'chart-' + vm.identifier
@@ -39,7 +39,7 @@
         if (!angular.isArray(data)) {
           return vm.data.push(data);
         }
-        data.forEach(vm.data.push);
+        data.forEach(function(d) { vm.data.push(d); });
       };
 
       vm.event = $rootScope.$on('chart:' + vm.identifier + ':load', function(evt, data) {

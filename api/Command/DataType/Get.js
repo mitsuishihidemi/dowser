@@ -35,8 +35,7 @@ Get.prototype.execute = function(id, callback) {
                     api.getProjection(resultPoint, function(projected) {
                         resultWithProjected = resultPoint.concat(projected);
                         resultType[0].points = resultWithProjected;
-                        callback(resultType[0]);
-
+                        callback(null, resultType[0]);
                     });
                 });
             });
