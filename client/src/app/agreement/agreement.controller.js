@@ -10,14 +10,13 @@
     var vm = this;
 
     vm.accept = debounce(function() {
-      Api.post('DataType/Insert', $stateParams)
+      Api.post('DataType/Insert', $stateParams.data)
         .then(function(response) {
           $rootScope.$emit('wizard:progress');
           $state.go('dashboard');
+          $log.debug(response);
         })
-        .catch(function(e) {
-          console.log(e);
-        });
+        .catch($log.error);
     });
 
     vm.deny = debounce(function() {

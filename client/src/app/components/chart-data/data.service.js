@@ -13,7 +13,7 @@
 
     function load(identifier, category) {
       Api.__get('Chart/Data/' + category)
-        .then(function(resolve) {
+        .then(function() {
           var data = ChartDataMock.get(category);
           $rootScope.$emit('chart:' + identifier + ':load', data);
         });

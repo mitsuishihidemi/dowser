@@ -6,7 +6,7 @@
     .factory('Api', Api);
 
   /** @ngInject */
-  function Api($timeout, $http) {
+  function Api($timeout, $http, $log) {
 
     var url = 'http://158.85.199.5:3002/';
 
@@ -17,32 +17,18 @@
     };
 
     function __get(endpoint) {
-      return new Promise(function(resolve, reject) {
-        console.log('Getting: ' + url + endpoint);
+      return new Promise(function(resolve) {
+        $log.info('Getting: ' + url + endpoint);
         $timeout(resolve, 2000);
       });
     }
 
     function get(endpoint) {
-      var settings = {
-        url: url + endpoint,
-        method: 'GET'
-      };
-
-      return $http(settings);
+      return $http.get(url + endpoint);
     }
 
     function post(endpoint, data) {
-      var settings = {
-        url: url + endpoint,
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        json: data
-      };
-
-      return $http(settings);
+      return $http.post(url + endpoint, data);
     }
   }
 })();
