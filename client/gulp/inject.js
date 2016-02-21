@@ -23,6 +23,8 @@ gulp.task('inject', ['scripts', 'styles'], function () {
 
   var injectScripts = gulp.src([
     path.join('./bower_components/ace-builds/src-min-noconflict/ace.js'),
+    path.join('./bower_components/amcharts3/amcharts/serial.js'),
+    path.join('./bower_components/amcharts3/amcharts/themes/dark.js'),
     path.join(conf.paths.src, '/app/**/*.module.js'),
     path.join(conf.paths.src, '/app/**/*.js'),
     path.join('!' + conf.paths.src, '/app/**/*.spec.js'),

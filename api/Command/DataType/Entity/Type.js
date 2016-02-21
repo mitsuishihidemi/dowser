@@ -1,30 +1,39 @@
 var Point = require('./Point');
 
 var Type = function(data) {
-    this.data = data;
     this.error = [];
     this.points = [];
-    this.validate();
-    this.createPoints();
+    this.setData(data);
 }
 
-Type.prototype.name = "dataTypes";
+Type.prototype.ALIAS = "dataTypes";
+
+Type.prototype.setData = function(data) {
+
+    this.id = data.id || undefined;
+    this.name = data.name || undefined;
+    this.kind = data.kind || undefined;
+    this.userId = data.userId || undefined;
+    this.points = this.createPoints(data.points || []);
+    
+    this.validate();
+}
 
 Type.prototype.validate = function() {
     
-    if(!this.data['name']) {
+    if(!this.name) {
         this.error.push('Need a name');
     }
     
-    if(!this.data['kind']) {
+    if(!this.kind) {
         this.error.push('Need a name');
     }
     
-    if(!this.data['userId']) {
+    if(!this.userId) {
         this.error.push('Need a userId');
     }
 
-    if(!this.data['points'][0] ) {
+    if(!this.points[0] ) {
         this.error.push('Need a array of points');
     }
 
@@ -42,25 +51,27 @@ Type.prototype.getErrors = function() {
 Type.prototype.get = function() {
 
     return {
-        'name' : this.data['name'],
-        'kind' : this.data['kind'],
-        'userId' : this.data['userId'],
+        'name' : this.name,
+        'kind' : this.kind,
+        'userId' : this.userId
     };
 
 }
 
-Type.prototype.createPoints = function() {
+Type.prototype.createPoints = function(points) {
     var point;
+    var pointsCollection = [];
+    for(var i = 0; i < points.length; i++) {
+        point = new Point(points[i]);
 
-    for(var i = 0; i < this.data['points'].length; i++) {
-        point = new Point(this.data['points'][i]);
-        
         if(point.getErrors()) {
             this.error = this.error.concat(point.getErrors());
         }
-        
-        this.points.push(point);
+
+        pointsCollection.push(point);
     }
+
+    return pointsCollection;
 }
 
 Type.prototype.getPoints = function() { 

@@ -32,6 +32,19 @@ Storage.prototype.setData = function(data) {
     return this;
 }
 
+Storage.prototype.setFilter = function(field, value) {
+    this.filter = rethinkdb.row(field).eq(value);
+    return this;
+}
+
+Storage.prototype.get = function(callback) {
+    rethinkdb
+        .db(this.db)
+        .table(this.table)
+        .filter(this.filter)
+        .run(this.connection, callback);
+}
+
 Storage.prototype.save = function(callback) {
     rethinkdb
         .db(this.db)

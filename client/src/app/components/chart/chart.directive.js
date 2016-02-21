@@ -19,31 +19,24 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($element, $rootScope, $filter) {
+    function ChartController($rootScope, $timeout, AmChartOptions) {
       var vm = this;
 
-      var chart;
+      vm.chartId = 'chart' + Date.now();
 
-      vm.render = function(data) {
-        chart = c3.generate({
-          bindto: $element.find('div')[0],
-          data: data,
-          axis: {
-            x: {
-              type: 'timeseries',
-              tick: {
-                format: '%m/%d'
-              }
-            }
-          },
-          regions: [
-            { axis: 'x', start: $filter('chartTimestamp')(Date.now()), class: 'predictionDivisor' }
-          ]
-        });
+      vm.makeChart= function(data) {
+        if (AmCharts.isReady) {
+          var options = new AmChartOptions(vm.chartId, data);
+          AmCharts.makeChart(vm.chartId, options);
+        } else {
+          AmCharts.ready(function() {
+            vm.makeChart(data);
+          });
+        }
       };
 
-      $rootScope.$on('chart:load', function(evt, data) {
-        return vm.render(data);
+      vm.event = $rootScope.$on('chart:load', function(evt, data) {
+        $timeout(function() { vm.makeChart(data); });
       });
     }
   }

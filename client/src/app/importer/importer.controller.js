@@ -5,10 +5,10 @@
     .module('dowser')
     .controller('ImporterController', ImporterController);
 
-  ImporterController.$inject = ['$timeout', '$state', '$stateParams', 'Api', 'DataGenerator'];
+  ImporterController.$inject = ['$rootScope', '$timeout', '$state', '$stateParams', 'Api', 'DataGenerator'];
 
   /** @ngInject */
-  function ImporterController($timeout, $state, $stateParams, Api, DataGenerator) {
+  function ImporterController($rootScope, $timeout, $state, $stateParams, Api, DataGenerator) {
     var vm = this;
     var comment = '// This is just an Example data\n';
     var generatedData = DataGenerator.generate($stateParams);
@@ -25,24 +25,26 @@
     };
 
     vm.next = function() {
+      $rootScope.$emit('wizard:progress');
       $timeout(importerData, 500);
     };
 
     function importerData() {
       var data = removePrefixComment(vm.data.dataForImport);
       Api.post('importer', data, function() {
+        $rootScope.$emit('wizard:progress');
         $state.go('wizard.agreement');
       });
     }
 
     function addPrefixComment(data) {
-      var stringfyData = JSON.stringify(data, null, 2);
+      var stringfyData = angular.toJson(data, 2);
       return comment.concat(stringfyData);
     }
 
     function removePrefixComment(stringfyData) {
       var data = stringfyData.replace(comment, '');
-      return JSON.parse(data);
+      return angular.fromJson(data);
     }
   }
 })();
