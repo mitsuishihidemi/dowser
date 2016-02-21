@@ -1,7 +1,7 @@
 var chart = require('chart');
 var clear = require('clear');
 var clone = require('./clone');
-var aux = require('./aux')
+var aux = require('./aux');
 var http = require('http');
 
 http.createServer(function(request,response){
@@ -18,12 +18,7 @@ http.createServer(function(request,response){
         request.on('end', function () {
         	body = JSON.parse(body)
 
-        	console.log(body.window)
-        	console.log(body.data)
-
             response.end(JSON.stringify(generatePrediction(body.data,body.window || 10)));
-
-
 
 
         });
@@ -52,21 +47,7 @@ generatePrediction = function(graph,repetition_window){
 		return (item/(max));
 	})
 
-	var newGraph = []
-	var tendence = []
 
-
-	var clone = graph.clone()
-
-	while(clone.length >= 7){
-
-		var portion = clone.splice(0, 7);
-
-		newGraph.push({
-			data : portion,
-			metrics : aux.average(portion)
-		});
-	}
 
 	pre = graph.clone().map(function(item,i){
 		return (graph[i]) + graph[graph.length-1]
@@ -87,8 +68,6 @@ generatePrediction = function(graph,repetition_window){
 		return (item/(max))*initialMax;
 	})
 
-
-
 	console.log(chart(graph, { width: 180, height: 20 }));
 
 	return graph;
@@ -98,4 +77,30 @@ generatePrediction = function(graph,repetition_window){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+	// var newGraph = []
+	// var tendence = []
+
+
+	// var clone = graph.clone()
+
+	// while(clone.length >= 7){
+
+	// 	var portion = clone.splice(0, 7);
+
+	// 	newGraph.push({
+	// 		data : portion,
+	// 		metrics : aux.average(portion)
+	// 	});
+	// }
 
