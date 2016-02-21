@@ -35,9 +35,13 @@
         AmCharts.ready(vm.renderChart);
       };
 
-      vm.event = $rootScope.$on('chart:' + vm.identifier + ':load', function(evt, data) {
+      vm.loadEvent = $rootScope.$on('chart:' + vm.identifier + ':load', function(evt, data) {
         vm.dataStore.add(data);
         $timeout(vm.renderChart);
+      });
+
+      vm.mergeEvent = $rootScope.$on('chart:' + vm.identifier + ':merge', function(evt) {
+        console.log('majika!');
       });
     }
   }

@@ -33,8 +33,11 @@
     };
 
     vm.setMainChart = function(chart) {
-      vm.mainChart = chart;
-      vm.loadMyChart();
+      vm.mainChart = false;
+      $timeout(function() {
+        vm.mainChart = chart;
+        vm.loadMyChart();
+      }, 1000);
     };
 
     vm.createMerge = function() {
