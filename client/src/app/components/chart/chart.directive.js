@@ -40,9 +40,9 @@
         $timeout(vm.renderChart);
       });
 
-      vm.mergeEvent = $rootScope.$on('chart:' + vm.identifier + ':merge', function(evt) {
+      vm.mergeEvent = $rootScope.$on('chart:' + vm.identifier + ':merge', function() {
         var data = angular.copy(vm.dataStore.get());
-        var merged = new AmChartMerge(data).get(function(merged) {
+        new AmChartMerge(data).get(function(merged) {
           vm.dataStore.addOnFirst(merged);
           $timeout(vm.renderChart);
         });
