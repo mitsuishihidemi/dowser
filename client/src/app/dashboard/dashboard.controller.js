@@ -11,8 +11,8 @@
 
     ChartData.load('My Sells');
 
-    // vm.addChart = function(category) {
-    //   ChartData.load(category);
-    // };
+    vm.addChart = function(category) {
+      ChartData.load(category);
+    };
   }
 })();
