@@ -5,8 +5,6 @@
     .module('dowser')
     .controller('MainController', MainController);
 
-  MainController.$inject = ['$state', '$timeout', 'Particles'];
-
   /** @ngInject */
   function MainController($state, $timeout, Particles) {
     var vm = this;

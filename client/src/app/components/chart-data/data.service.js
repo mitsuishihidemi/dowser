@@ -11,7 +11,7 @@
       load: load
     };
 
-    function load(identifier, name) {
+    function load(identifier) {
       Api.__get('DataType/Get/' + identifier)
         .then(function() {
           var data = ChartDataMock.get();

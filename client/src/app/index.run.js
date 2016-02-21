@@ -6,10 +6,8 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($localStorage) {
-    if ($localStorage.ownCharts) {
-      $localStorage.ownCharts = [];
-    }
+  function runBlock() {
+
   }
 
 })();
