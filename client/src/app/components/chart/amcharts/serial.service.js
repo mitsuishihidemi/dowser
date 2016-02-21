@@ -41,7 +41,7 @@
           "balloonPointerOrientation": "horizontal",
           "bulletSize": 5,
           "animationDuration": 0.3,
-          "categoryBalloonDateFormat": "YYYY MMM DD",
+          "categoryBalloonDateFormat": "MMM DD",
           "graphBulletSize": 0
         },
         "trendLines": [],
