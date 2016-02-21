@@ -7,13 +7,6 @@
 
   /** @ngInject */
   function AmChartParserService($filter, AmChartFormats) {
-    function Result(category, date, value) {
-      var result = {};
-      result.date = date;
-      result[category] = value;
-      return result;
-    }
-
     function AmChartParser(data) {
       this.results = {};
       this.__dates = [];
