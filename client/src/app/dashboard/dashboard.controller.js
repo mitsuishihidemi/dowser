@@ -18,6 +18,7 @@
       { identifier: 'ice-cream-sells', dataName: 'Ice Cream Sells'}
     ];
 
+    ChartData.load('main', 'My Sells');
     vm.comparableCharts.forEach(function(comparableChartsItem) {
       ChartData.load(comparableChartsItem.identifier, comparableChartsItem.dataName);
     });
