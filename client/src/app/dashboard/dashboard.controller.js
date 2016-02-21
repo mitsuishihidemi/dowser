@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($timeout, $state, ChartData, User) {
+  function DashboardController($timeout, $state, ChartData, User, $rootScope) {
     var vm = this;
 
     vm.inputSearch = '';
@@ -15,13 +15,13 @@
     vm.comparableCharts = [];
 
     vm.loadMyChart = function() {
-      ChartData.load(vm.mainChart.id, vm.mainChart.name);
+      ChartData.load(vm.mainChart.id);
     };
 
     vm.loadComparableCharts = function() {
       vm.comparableCharts.forEach(function(comparableChartsItem, index) {
         $timeout(function() {
-          ChartData.load(comparableChartsItem.id, comparableChartsItem.name);
+          ChartData.load(comparableChartsItem.id);
         }, 3000 * index);
       });
     };
@@ -32,8 +32,13 @@
       }, 500);
     };
 
-    vm.setMainChart = function() {
-      
+    vm.setMainChart = function(chart) {
+      vm.mainChart = chart;
+      vm.loadMyChart();
+    };
+
+    vm.createMerge = function() {
+      $rootScope.$emit('chart:' + vm.mainChart.id + ':merge');
     };
 
     vm.addChart = function(id) {

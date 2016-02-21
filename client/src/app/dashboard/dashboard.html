@@ -6,7 +6,10 @@
         <md-button ng-click="dashboard.addNewChart()" class="md-raised md-primary">Add Chart</md-button>
       </div>
       <ul class="chart-list">
-        <li class="chart-item chart-item-active" ng-click="dashboard.setMainChart()" ng-repeat="chartItem in dashboard.chartList track by $index">
+        <li class="chart-item"
+            ng-repeat="chartItem in dashboard.chartList track by $index"
+            ng-click="dashboard.setMainChart(chartItem)"
+            ng-class="dashboard.mainChart.id === chartItem.id ? 'chart-item-active' : ''">
           {{ chartItem.name }}
         </li>
       </ul>
@@ -14,6 +17,7 @@
   </div>
   <div class="content">
     <h2 class="md-headline">{{ dashboard.mainChart.name }}</h2>
+    <md-button ng-click="dashboard.createMerge()" class="md-raised md-primary">Create Merge Line</md-button>
     <chart ng-if="dashboard.mainChart.id" identifier="{{ dashboard.mainChart.id }}"></chart>
     <h3 class="md-title">Comparable Charts</h2>
     <div class="comparable-charts">

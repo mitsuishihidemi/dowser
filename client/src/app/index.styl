@@ -104,6 +104,16 @@ body
     flex 0 0 300px
     background-color #37474F
     border-right dark-border
+    display flex
+    flex-direction column
+
+    .logo
+      flex 0
+
+    .charts
+      flex 1
+      display flex
+      flex-direction column
 
   .content
     flex 1 1 auto
@@ -183,6 +193,7 @@ body
 .chart-features
   padding 0 21px 16px
   border-bottom dark-border
+  flex 0
 
   .md-button
     width 100%
@@ -193,11 +204,32 @@ body
   list-style none
   padding 0
   margin 0
+  overflow scroll
+  heigh 100%
+  flex 1
 
 .chart-item
   border-bottom dark-border
   padding 16px 21px
   cursor pointer
+  outline none
+  transition all .1s ease-in-out
+
+  &:hover
+    background-color dark-gray-color
+
+.chart-item-active
+  background dark-gray-color
+  position relative
+
+  &::before
+    content ''
+    position absolute
+    width 5px
+    height 100%
+    top 0
+    left 0
+    background-color #3F51B5
 
 .comparable-charts
   display flex
@@ -210,6 +242,7 @@ body
   padding 0 10px 10px
   box-sizing border-box
   cursor pointer
+  outline none
 
   .md-subhead
     color #90A4AE

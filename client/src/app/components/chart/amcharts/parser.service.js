@@ -9,6 +9,7 @@
   function AmChartParserService($filter, AmChartFormats) {
     function AmChartParser(data) {
       this.results = {};
+      this.today = moment().startOf('day');
       this.__dates = [];
       this.__unparsedData = data;
     }
@@ -63,19 +64,16 @@
           var date = data.date.format('YYYY-MM-DD');
 
           if (self.results[date][set.category]) {
-            return self.results[date][set.category] += data.value;
+            self.results[date][set.category] += data.value;
+          } else {
+            self.results[date][set.category] = data.value;
           }
 
-          return self.results[date][set.category] = data.value;
+          if (data.date.diff(self.today) >= 0) {
+            self.results[date].dashLength = AmChartFormats.dashLength;
+          }
         });
       });
-    };
-
-    AmChartParser.prototype.__addDashedOnToday = function() {
-      var today = moment().format('YYYY-MM-DD');
-      if (this.results[today]) {
-        this.results[today]['dashLength'] = AmChartFormats.dashLength;
-      }
     };
 
     AmChartParser.prototype.__convertResultsToArray = function() {
@@ -91,7 +89,6 @@
       self.__createResultDates();
       self.__convertAllDates();
       self.__buildResults();
-      self.__addDashedOnToday();
       self.__convertResultsToArray();
       self.__formatResultDates();
 
