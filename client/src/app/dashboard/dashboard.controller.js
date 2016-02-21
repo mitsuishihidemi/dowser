@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($timeout, $state, ChartData) {
+  function DashboardController($timeout, $state, $stateParams, ChartData) {
     var vm = this;
 
     vm.inputSearch = '';
