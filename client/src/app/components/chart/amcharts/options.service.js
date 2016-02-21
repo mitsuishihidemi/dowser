@@ -6,16 +6,19 @@
     .factory('AmChartOptions', AmChartOptionsFactory);
 
   /** @ngInject */
-  function AmChartOptionsFactory(ChartDataMock, AmChartSerial, AmChartValueAxe, AmChartGraph) {
+  function AmChartOptionsFactory(ChartDataMock, AmChartSerial, AmChartValueAxe, AmChartGraph, AmChartParser) {
     function AmChartOptions(id, datas) {
       var chart = new AmChartSerial();
+
       chart.valueAxes = [];
-      
+      chart.graphs = [];
+
       datas.forEach(function(data, index) {
         chart.valueAxes.push(new AmChartValueAxe(index));
+        chart.graphs.push(new AmChartGraph(data, index));
       });
 
-      chart.dataProvider = datas;
+      chart.dataProvider = new AmChartParser(datas).parse();
 
       return chart;
     }

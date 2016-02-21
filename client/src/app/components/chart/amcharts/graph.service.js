@@ -9,16 +9,16 @@
   function AmChartGraphService() {
     function AmChartGraph(data, index) {
       return {
-        "balloonText": "[[value]]",
+        "balloonText": "[[value]]" + (data.unit || 'un'),
         "bullet": "round",
         "dashLengthField": "dashLength",
         "id": "AmGraph-" + index,
         "lineAlpha": 1,
         "lineThickness": 3,
         "markerType": "square",
-        "title": "Ice Cream Sells",
+        "title": data.category,
         "valueAxis": "ValueAxis-" + index,
-        "valueField": "Ice Cream Sells"
+        "valueField": data.category
       };
     }
 
