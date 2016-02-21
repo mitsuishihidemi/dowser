@@ -16,8 +16,23 @@
 
     function AmChartParser(data) {
       this.results = {};
+      this.__dates = [];
       this.__unparsedData = data;
     }
+
+    AmChartParser.prototype.__createResultDates = function() {
+      var self = this;
+      self.__unparsedData.forEach(function(category) {
+        category.data.forEach(function(data) {
+          self.__dates.push(data.date);
+        });
+      });
+      var maxDate = moment(Math.max.apply(null, self.__dates));
+      var minDate = moment(Math.min.apply(null, self.__dates));
+      moment.range(minDate, maxDate).by('hours', function(date) {
+        self.results[date.format('YYYY-MM-DD')] = { date: date };
+      });
+    };
 
     AmChartParser.prototype.__convertDate = function(date) {
       return moment(date).startOf('day');
@@ -35,7 +50,7 @@
 
     AmChartParser.prototype.__formatResultDates = function() {
       this.results.forEach(function(result) {
-        result.date = result.date.format(AmChartFormats.date);
+        result.date = result.date.format('YYYY-MM-DD');
       });
     };
 
@@ -53,13 +68,12 @@
       self.__unparsedData.forEach(function(set) {
         set.data.forEach(function(data) {
           var date = data.date.format('YYYY-MM-DD');
-          if (self.results[date]) {
-            if (self.results[date][set.category]) {
-              return self.results[date][set.category] += data.value;
-            }
-            return self.results[date][set.category] = data.value;
+
+          if (self.results[date][set.category]) {
+            return self.results[date][set.category] += data.value;
           }
-          self.results[date] = new Result(set.category, data.date, data.value);
+
+          return self.results[date][set.category] = data.value;
         });
       });
     };
@@ -79,6 +93,7 @@
     AmChartParser.prototype.parse = function() {
       var self = this;
 
+      self.__createResultDates();
       self.__convertAllDates();
       self.__buildResults();
       self.__addDashedOnToday();

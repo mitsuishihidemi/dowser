@@ -13,7 +13,7 @@
         "colors": AmChartFormats.linesColorPallet,
         "creditsPosition": "bottom-right",
         "categoryField": "date",
-        "dataDateFormat": AmChartFormats.date,
+        "dataDateFormat": "YYYY-MM-DD",
         "angle": 21,
         "addClassNames": true,
         "fontFamily": "sans-serif",
@@ -22,12 +22,13 @@
         "categoryAxis": {
           "boldPeriodBeginning": false,
           "firstDayOfWeek": 0,
-          "parseDates": false,
+          "parseDates": true,
           "axisThickness": 0,
           "gridThickness": 0,
+          "equalSpacing": true,
           "guides": [
             {
-              "category": moment().format(AmChartFormats.date),
+              "date": moment().format('YYYY-MM-DD'),
               "lineColor": "#CCCCCC",
               "lineAlpha": 0.3,
               "lineThickness": 2,
@@ -39,7 +40,8 @@
           "enabled": true,
           "balloonPointerOrientation": "horizontal",
           "bulletSize": 5,
-          "categoryBalloonDateFormat": AmChartFormats.date,
+          "animationDuration": 0.3,
+          "categoryBalloonDateFormat": "YYYY MMM DD",
           "graphBulletSize": 0
         },
         "trendLines": [],
