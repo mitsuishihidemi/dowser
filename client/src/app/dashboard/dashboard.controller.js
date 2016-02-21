@@ -14,15 +14,15 @@
       { dataName: 'Test' }
     ];
     vm.comparableCharts = [
-      { dataName: 'Weather'},
-      { dataName: 'Ice Cream Selling'},
-      { dataName: 'Economic Crisis'},
-      { dataName: 'Birth of Children' }
+      { identifier: 'weather', dataName: 'Weather'},
+      { identifier: 'ice-cream-sells', dataName: 'Ice Cream Sells'},
+      { identifier: 'economic-crisis', dataName: 'Economic Crisis'},
+      { identifier: 'birth-of-children', dataName: 'Birth of Children' }
     ];
 
-    ChartData.load('main', 'My Sells');
-    ChartData.load('ice-creams', 'Ice Cream Sells');
-    ChartData.load('weather', 'Weather');
+    vm.comparableCharts.forEach(function(comparableChartsItem) {
+      ChartData.load(comparableChartsItem.identifier, comparableChartsItem.dataName);
+    });
 
     vm.addNewChart = function() {
       $timeout(function () {

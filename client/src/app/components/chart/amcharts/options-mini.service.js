@@ -37,7 +37,7 @@
         data = [data];
       }
 
-      chart.dataProvider = new AmChartParser(data).parse();
+      chart.dataProvider = new AmChartParser([data[0]]).parse();
 
       return chart;
     }

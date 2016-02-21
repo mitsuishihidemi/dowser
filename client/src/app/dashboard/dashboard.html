@@ -15,14 +15,12 @@
   <div class="content">
     <h2 class="md-headline">Test x Days</h2>
     <chart identifier="main"></chart>
-    <chart-mini identifier="ice-creams"></chart-mini>
-    <chart-mini identifier="weather"></chart-mini>
     <h3 class="md-title">Comparable Charts</h2>
     <div class="comparable-charts">
       <div ng-repeat="comparableChartItem in dashboard.comparableCharts" class="comparable-chart-item">
         <h4 class="md-subhead">{{ comparableChartItem.dataName }}</h4>
         <div class="simple-chart" ng-click="dashboard.addChart('Ice Cream Sells')">
-          Chart
+          <chart-mini identifier="{{ comparableChartItem.identifier }}"></chart-mini>
         </div>
       </div>
     </div>
