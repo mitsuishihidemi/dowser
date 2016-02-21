@@ -69,7 +69,7 @@
             self.results[date][set.category] = data.value;
           }
 
-          if (data.date.isAfter(self.today)) {
+          if (data.date.diff(self.today) >= 0) {
             self.results[date].dashLength = AmChartFormats.dashLength;
           }
         });
