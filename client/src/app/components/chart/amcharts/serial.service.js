@@ -24,7 +24,8 @@
           "firstDayOfWeek": 0,
           "parseDates": true,
           "axisThickness": 0,
-          "gridThickness": 0,
+          "gridThickness": 1,
+          "dashLength": AmChartFormats.dashLength,
           "equalSpacing": true,
           "guides": [
             {

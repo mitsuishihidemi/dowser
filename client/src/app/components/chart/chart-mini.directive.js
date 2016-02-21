@@ -3,17 +3,17 @@
 
   angular
     .module('dowser')
-    .directive('chart', chart);
+    .directive('chartMini', chartMini);
 
   /** @ngInject */
-  function chart() {
+  function chartMini() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/chart/chart.html',
+      templateUrl: 'app/components/chart/chart-mini.html',
       scope: {
         identifier: '@'
       },
-      controller: ChartController,
+      controller: ChartMiniController,
       controllerAs: 'vm',
       bindToController: true
     };
@@ -21,30 +21,21 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($rootScope, $timeout, AmChartOptions) {
+    function ChartMiniController($rootScope, $timeout, AmChartMiniOptions) {
       var vm = this;
 
       vm.chartId = 'chart-' + vm.identifier
-      vm.data = [];
 
-      vm.renderChart = function() {
+      vm.renderChart = function(data) {
         if (AmCharts.isReady) {
-          var chart = new AmChartOptions(vm.identifier, vm.data);
+          var chart = new AmChartMiniOptions(vm.identifier, data);
           return AmCharts.makeChart(vm.chartId, chart);
         }
         AmCharts.ready(vm.renderChart);
       };
 
-      vm.addData = function(data) {
-        if (!angular.isArray(data)) {
-          return vm.data.push(data);
-        }
-        data.forEach(vm.data.push);
-      };
-
       vm.event = $rootScope.$on('chart:' + vm.identifier + ':load', function(evt, data) {
-        vm.addData(data);
-        $timeout(vm.renderChart);
+        $timeout(function() { vm.renderChart(data); });
       });
     }
   }
