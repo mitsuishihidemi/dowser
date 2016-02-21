@@ -16,7 +16,7 @@
         "dataDateFormat": AmChartFormats.date,
         "angle": 21,
         "addClassNames": true,
-        "fontFamily": "sans",
+        "fontFamily": "sans-serif",
         "fontSize": 13,
         "theme": "dark",
         "categoryAxis": {
