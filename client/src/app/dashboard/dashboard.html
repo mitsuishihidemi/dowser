@@ -1,17 +1,20 @@
 <div class="dashboard full-screen">
-  <div class="header header-raised">
+  <div class="sidebar dark-theme">
     <h1 class="logo">Dowser</h1>
-  </div>
-  <div class="content content-flex">
-    <div class="own-charts">
-      <chart></chart>
+    <div class="charts">
+      <div class="input-search">
+        <input type="text" placeholder="Search charts" autocomplete="false" ng-model="dashboard.inputSearch" />
+      </div>
+      <ul class="chart-list">
+        <li class="chart-item chart-item-active" ng-repeat="chartItem in dashboard.chartList track by $index">
+          {{ chartItem.dataName }}
+        </li>
+      </ul>
     </div>
-    <div class="other-charts">
-      <md-button class="md-raised" ng-click="dashboard.addChart('Ice Cream Sells')">Add Ice Cream</md-button>
-      <md-button class="md-raised" ng-click="dashboard.addChart('Weather')">Add Weather</md-button>
-    </div>
   </div>
-  <div class="footer">
-    Created with <3 by Humans
+  <div class="content">
+    <chart></chart>
+    <md-button class="md-raised" ng-click="dashboard.addChart('Ice Cream Sells')">Add Ice Cream</md-button>
+    <md-button class="md-raised" ng-click="dashboard.addChart('Weather')">Add Weather</md-button>
   </div>
 </div>

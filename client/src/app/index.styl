@@ -5,11 +5,12 @@
 // bower:styl
 // endbower
 
-wrapper = 0 21px
-
 dark-gray-color = #263238
 light-gray-color = #ECEFF1
 white-color = #fff
+
+wrapper = 0 21px
+dark-border = 1px solid dark-gray-color
 
 html, body, .app
   width 100%
@@ -56,7 +57,10 @@ body
   margin 16px 0
 
 .logo
-  margin 16px 0
+  padding 16px 0
+  margin 0
+  font-weight 600
+  font-size 36px
 
 .main
   background-color dark-gray-color
@@ -73,10 +77,23 @@ body
     padding 8 32px
 
 .dashboard
-  background-color light-gray-color
 
-  .footer
-    color #90A4AE
+  &.full-screen
+    flex-flow row
+
+  .logo
+    text-align center
+    font-size 26px
+    padding 21px 0
+
+  .sidebar
+    flex 0 0 300px
+    background-color #37474F
+    border-right dark-border
+
+  .content
+    flex 1 1 auto
+    background-color #455A64
 
 .opening
   text-align center
@@ -114,8 +131,9 @@ body
     margin 0 0 21px
 
 .own-charts
-  flex 0 0 300px
+  flex 0 0 258px
   background-color dark-gray-color
+  padding 21px
 
 .other-charts
   flex 1 1 auto
@@ -129,6 +147,42 @@ body
 
   &-hide
     display none
+
+.input-search
+  border-bottom dark-border
+  padding 0 21px 16px
+
+  input
+    padding 8px 10px
+    width 100%
+    box-sizing border-box
+    border-radius 2px
+    border none
+    background-color #263238
+    color #78909C
+    outline none
+
+    &::-webkit-input-placeholder
+      color #546E7A
+
+.chart-list
+  color #90A4AE
+  list-style none
+  padding 0
+  margin 0
+
+.chart-item
+  border-bottom dark-border
+  padding 16px 21px
+
+.chart
+  width 100%
+  height 300px
+
+
+// .chart
+//   width 100%
+//   height 258px
 
 // [ui-view].ng-enter, [ui-view].ng-leave
 //   position absolute
