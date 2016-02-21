@@ -41,7 +41,6 @@
       } else {
         data.forEach(function(d) { this.__add(d); });
       }
-      console.log(this.data);
     };
 
     return AmChartDataStore;
