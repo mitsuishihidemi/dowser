@@ -1,15 +1,17 @@
 <p class="instructions">Complete the form to create the data structure for the creation of your chart.</p>
-<md-input-container>
-  <label>Data name</label>
-  <input ng-model="register.data.dataName" autocomplete="off" md-placeholder="Climate">
-  <div class="input-hint">Ex: Weather</div>
-</md-input-container>
-<md-input-container>
-  <label>Unit</label>
-  <input ng-model="register.data.unit" autocomplete="off" md-placeholder="ºF">
-  <div class="input-hint">Ex: ºF</div>
-</md-input-container>
-<md-switch ng-model="register.data.itAcumulates">
-  Is it cumulative?
-</md-switch>
-<md-button ng-click="register.next()" class="md-raised md-primary wizard-button">Save</md-button>
+<form name="registerForm">
+  <md-input-container>
+    <label>Data name</label>
+    <input required ng-model="register.data.name" autocomplete="off" md-placeholder="Weather">
+    <div class="input-hint">Ex: Weather</div>
+  </md-input-container>
+  <md-input-container>
+    <label>Unit</label>
+    <input required ng-model="register.data.kind" autocomplete="off" md-placeholder="ºF">
+    <div class="input-hint">Ex: ºF</div>
+  </md-input-container>
+  <!-- <md-switch ng-model="register.data.itAcumulates">
+    Is it cumulative?
+  </md-switch> -->
+  <md-button ng-click="!registerForm.$valid || register.next()" class="md-raised md-primary wizard-button">Save</md-button>
+</form>

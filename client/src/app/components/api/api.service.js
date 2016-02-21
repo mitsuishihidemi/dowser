@@ -6,19 +6,29 @@
     .factory('Api', Api);
 
   /** @ngInject */
-  function Api($timeout) {
+  function Api($timeout, $http, $log) {
+
+    var url = 'http://158.85.199.5:3002/';
 
     return {
+      __get: __get,
       get: get,
       post: post
     };
 
-    function get(endpoint, callback) {
-      $timeout(callback, 1000);
+    function __get(endpoint) {
+      return new Promise(function(resolve) {
+        $log.info('Getting: ' + url + endpoint);
+        $timeout(resolve, 2000);
+      });
     }
 
-    function post(endpoint, parameters, callback) {      
-      $timeout(callback, 1000);
+    function get(endpoint) {
+      return $http.get(url + endpoint);
+    }
+
+    function post(endpoint, data) {
+      return $http.post(url + endpoint, data);
     }
   }
 })();

@@ -33,7 +33,7 @@ Get.prototype.execute = function(id, callback) {
 
                     resultType[0].points = resultPoint;
 
-                    callback(resultType[0]);
+                    callback(null, resultType[0]);
                 });
             });
         });

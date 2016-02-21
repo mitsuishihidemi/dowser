@@ -26,17 +26,19 @@
         controllerAs: 'register'
       })
       .state('wizard.importer', {
-        params: {dataName: null},
+        params: {name: undefined, kind: undefined, userId: 'user'},
         templateUrl: 'app/importer/importer.html',
         controller: 'ImporterController',
         controllerAs: 'importer'
       })
       .state('wizard.agreement', {
+        params: {data: {}},
         templateUrl: 'app/agreement/agreement.html',
         controller: 'AgreementController',
         controllerAs: 'agreement'
       })
       .state('dashboard', {
+        params: {data: {}},
         url: '/dashboard',
         templateUrl: 'app/dashboard/dashboard.html',
         controller: 'DashboardController',

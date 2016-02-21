@@ -11,10 +11,10 @@
   function ImporterController($rootScope, $timeout, $state, $stateParams, Api, DataGenerator) {
     var vm = this;
     var comment = '// This is just an Example data\n';
-    var generatedData = DataGenerator.generate($stateParams);
+    var generatedData = DataGenerator.generate();
 
     vm.data = {
-      dataForImport: addPrefixComment(generatedData)
+      points: addPrefixComment(generatedData)
     };
 
     vm.aceSettings = {
@@ -30,11 +30,10 @@
     };
 
     function importerData() {
-      var data = removePrefixComment(vm.data.dataForImport);
-      Api.post('importer', data, function() {
-        $rootScope.$emit('wizard:progress');
-        $state.go('wizard.agreement');
-      });
+      var data = $stateParams;
+      data.points = removePrefixComment(vm.data.points);
+      $rootScope.$emit('wizard:progress');
+      $state.go('wizard.agreement', { data: data });
     }
 
     function addPrefixComment(data) {

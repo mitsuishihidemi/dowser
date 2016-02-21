@@ -12,22 +12,21 @@
       generate: generate
     };
 
-    function generate(structure) {
-      var dataName = structure.dataName;
+    function generate() {
       var data = [];
 
       for (var i = 0; i <= 10; i++) {
-        var item = createItem(dataName);
+        var item = createItem();
         data.push(item);
       }
 
       return data;
     }
 
-    function createItem(dataName) {
+    function createItem() {
       var item = {};
-      item[dataName] = randomNumber(1, 10);
-      item.timeStamp = createTimeStamp();
+      item.date = createTimeStamp();
+      item.value = randomNumber(1, 10);
       return item;
     }
 
