@@ -18,11 +18,13 @@
 
       delete chart.legend;
       delete chart.chartCursor;
-      delete chart.categoryAxis.guides;
 
       chart.colors = [];
       chart.categoryAxis.labelsEnabled = false;
       chart.categoryAxis.gridThickness = 0;
+      chart.categoryAxis.dashLength = 0;
+      chart.categoryAxis.gridAlpha = 0;
+      chart.categoryAxis.axisAlpha = 0;
       chart.balloon = {
         borderAlpha: 0,
         borderThickness: 0,
