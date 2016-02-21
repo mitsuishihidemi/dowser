@@ -22,6 +22,7 @@ body
 
 .app
   position relative
+  overflow  hidden
 
 .full-screen
   display flex
@@ -43,6 +44,7 @@ body
 .content
   flex 1
   padding wrapper
+  overflow scroll
 
   &-flex
     display flex
@@ -70,7 +72,7 @@ body
 
   &-view
     width 700px
-    margin 50px auto 0
+    margin 100px auto 0
 
   &-button
     margin-top 50px
@@ -169,13 +171,9 @@ body
   padding 0 21px 16px
   border-bottom dark-border
 
-  .md-button.md-primary.md-raised:not([disabled])
+  .md-button
     width 100%
     margin 0
-    background-color #2196F3
-
-    &:hover
-      background-color: #1976D2
 
 .chart-list
   color #90A4AE
@@ -187,6 +185,25 @@ body
   border-bottom dark-border
   padding 16px 21px
 
+.comparable-charts
+  display flex
+  flex-direction row
+  flex-wrap wrap
+
+.comparable-chart-item
+  flex 0 0 50%
+  height 200px
+  padding 0 10px 10px
+  box-sizing border-box
+
+  .md-subhead
+    color #90A4AE
+    margin 0 0 10px
+
+  .simple-chart
+    height 150px
+    width 100%
+    cursor pointer
 // .chart
 //   width 100%
 //   height 258px
