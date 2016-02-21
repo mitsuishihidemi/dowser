@@ -1,9 +1,9 @@
-<div class="dashboard full-screen">
-  <div class="sidebar dark-theme">
+<div class="dashboard full-screen dark-theme">
+  <div class="sidebar">
     <h1 class="logo">Dowser</h1>
     <div class="charts">
       <div class="chart-features">
-        <md-button ng-click="importer.next()" class="md-raised md-primary">Add Chart</md-button>
+        <md-button ng-click="dashboard.addNewChart()" class="md-raised md-primary">Add Chart</md-button>
       </div>
       <ul class="chart-list">
         <li class="chart-item chart-item-active" ng-repeat="chartItem in dashboard.chartList track by $index">
@@ -13,11 +13,20 @@
     </div>
   </div>
   <div class="content">
-    <h2>Teste</h2>
-    <chart identifier="main"></chart>
-    <md-button class="md-raised" ng-click="dashboard.addChart('Ice Cream Sells')">Add Ice Cream</md-button>
-    <md-button class="md-raised" ng-click="dashboard.addChart('Weather')">Add Weather</md-button>
+    <h2 class="md-headline">Test x Days</h2>
+    <chart></chart>
     <chart-mini identifier="ice-creams"></chart-mini>
     <chart-mini identifier="weather"></chart-mini>
+    <h3 class="md-title">Comparable Charts</h2>
+    <div class="comparable-charts">
+      <div ng-repeat="comparableChartItem in dashboard.comparableCharts" class="comparable-chart-item">
+        <h4 class="md-subhead">{{ comparableChartItem.dataName }}</h4>
+        <div class="simple-chart" ng-click="dashboard.addChart('Ice Cream Sells')">
+          Chart
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!-- <md-button class="md-raised" ng-click="dashboard.addChart('Ice Cream Sells')">Add Ice Cream</md-button>
+<md-button class="md-raised" ng-click="dashboard.addChart('Weather')">Add Weather</md-button> -->
