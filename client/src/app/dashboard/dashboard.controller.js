@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($timeout, $state, ChartData, User) {
+  function DashboardController($timeout, $state, ChartData, User, $rootScope) {
     var vm = this;
 
     vm.inputSearch = '';
@@ -34,6 +34,10 @@
 
     vm.setMainChart = function() {
 
+    };
+
+    vm.createMerge = function() {
+      $rootScope.$emit('chart:' + vm.mainChart.id + ':merge');
     };
 
     vm.addChart = function(id) {

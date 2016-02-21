@@ -14,6 +14,7 @@
   </div>
   <div class="content">
     <h2 class="md-headline">{{ dashboard.mainChart.name }}</h2>
+    <md-button ng-click="dashboard.createMerge()" class="md-raised md-primary">Create Merge Line</md-button>
     <chart ng-if="dashboard.mainChart.id" identifier="{{ dashboard.mainChart.id }}"></chart>
     <h3 class="md-title">Comparable Charts</h2>
     <div class="comparable-charts">
