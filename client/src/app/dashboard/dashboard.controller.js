@@ -32,8 +32,9 @@
       }, 500);
     };
 
-    vm.setMainChart = function() {
-
+    vm.setMainChart = function(chart) {
+      vm.mainChart = chart;
+      vm.loadMyChart();
     };
 
     vm.createMerge = function() {
