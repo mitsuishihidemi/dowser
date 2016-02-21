@@ -10,6 +10,7 @@
     function AmChartSerial() {
       return {
         "type": "serial",
+        "colors": AmChartFormats.linesColorPallet,
         "creditsPosition": "bottom-right",
         "categoryField": "date",
         "dataDateFormat": AmChartFormats.date,
