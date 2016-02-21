@@ -32,7 +32,7 @@ Get.prototype.execute = function(id, callback) {
                         return;
                     }
 
-                    api.getProjection(resultPoint, function(projected) {
+                    self.api.getProjection(resultPoint, function(projected) {
                         resultWithProjected = resultPoint.concat(projected);
                         resultType[0].points = resultWithProjected;
                         callback(null, resultType[0]);

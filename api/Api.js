@@ -1,7 +1,8 @@
 var http = require("http");
 
-var Api = function() {
-
+var Api = function(host, port) {
+    this.host = host;
+    this.port = port;
 }
 
 Api.prototype.getProjection = function(points, callback) {
@@ -10,7 +11,7 @@ Api.prototype.getProjection = function(points, callback) {
     
     self.call(parsedPoints, function(projectedPoints){
         projectedPoints = self.parseToData(projectedPoints);
-
+console.log(projectedPoints);
         callback(projectedPoints);
     });
 }
@@ -23,7 +24,7 @@ Api.prototype.parseToApi = function(points) {
     for(var i = 0; i < points.length; i++) {
         var point = points[i];
 
-        parsed[i] = point.value;
+        parsed[i] = point.value * 1;
     }
 
     return parsed;
@@ -40,7 +41,7 @@ Api.prototype.parseToData = function(points) {
     for(var i = 0; i < points.length; i++) {
         var point = {
             "date" : dateFuture,
-            "value" : point[i];
+            "value" : points[i]
         }
 
         parsed[i] = point;
@@ -55,12 +56,12 @@ Api.prototype.call = function(points, callback) {
         "data" : points,
         "window" : 7
     };
-
+    
     var options = {
         "method": "POST",
-        "hostname": "158.85.206.13",
-        "port": "8003",
-        "path": "/DataType/Get/8a2cefdf-23a7-40ae-a6ac-209a1c2b0ed0",
+        "hostname": this.host,
+        "port": this.port,
+        "path": "/",
         "headers": {
             "cache-control": "no-cache",
             "content-type": "application/json"
@@ -77,7 +78,6 @@ Api.prototype.call = function(points, callback) {
         res.on("end", function () {
             var body = Buffer.concat(chunks);
             var result = JSON.parse(body.toString());
-
             callback(result);
         });
     });
@@ -85,3 +85,5 @@ Api.prototype.call = function(points, callback) {
     req.write(JSON.stringify(bodyCall));
     req.end();
 }
+
+module.exports = Api;
