@@ -20,7 +20,7 @@ GetByNotUser.prototype.execute = function(id, callback) {
                 return;
             }
 
-            callback(resultType);
+            callback(null, resultType);
         });
     }, true);
 }

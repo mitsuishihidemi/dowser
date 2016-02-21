@@ -6,15 +6,15 @@
     .controller('AgreementController', AgreementController);
 
   /** @ngInject */
-  function AgreementController($rootScope, $state, $timeout, $stateParams, $log, Api) {
+  function AgreementController($rootScope, $state, $timeout, $stateParams, $log, $localStorage, Api) {
     var vm = this;
 
     vm.accept = debounce(function() {
       Api.post('DataType/Insert', $stateParams.data)
         .then(function(response) {
           $rootScope.$emit('wizard:progress');
+          $localStorage.ownCharts.push(response.data.generated_keys);
           $state.go('dashboard');
-          $log.debug(response);
         })
         .catch($log.error);
     });
