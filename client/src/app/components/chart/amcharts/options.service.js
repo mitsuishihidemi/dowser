@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function AmChartOptionsFactory(ChartDataMock, AmChartSerial, AmChartValueAxe, AmChartGraph, AmChartParser) {
-    function AmChartOptions(id, datas) {
+    function AmChartOptions(identifier, datas) {
       var chart = new AmChartSerial();
 
       chart.valueAxes = [];

@@ -7,16 +7,14 @@
 
   /** @ngInject */
   function ChartData($rootScope, Api, ChartDataMock) {
-    var datas = [];
-
     return {
       load: load
     };
 
-    function load(category) {
+    function load(identifier, category) {
       Api.get('/chart/data/' + category, function() {
-        datas.push(ChartDataMock.get(category));
-        $rootScope.$emit('chart:load', datas);
+        var data = ChartDataMock.get(category);
+        $rootScope.$emit('chart:' + identifier + ':load', data);
       });
     }
   }

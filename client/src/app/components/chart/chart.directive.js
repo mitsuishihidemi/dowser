@@ -10,7 +10,9 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/chart/chart.html',
-      scope: {},
+      scope: {
+        identifier: '@'
+      },
       controller: ChartController,
       controllerAs: 'vm',
       bindToController: true
@@ -19,24 +21,30 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($rootScope, $timeout, AmChartOptions) {
+    function ChartController($scope, $rootScope, $timeout, AmChartOptions) {
       var vm = this;
 
-      vm.chartId = 'chart' + Date.now();
+      vm.chartId = 'chart-' + vm.identifier
+      vm.data = [];
 
-      vm.makeChart= function(data) {
+      vm.renderChart = function() {
         if (AmCharts.isReady) {
-          var options = new AmChartOptions(vm.chartId, data);
-          AmCharts.makeChart(vm.chartId, options);
-        } else {
-          AmCharts.ready(function() {
-            vm.makeChart(data);
-          });
+          var chart = new AmChartOptions(vm.identifier, vm.data);
+          return AmCharts.makeChart(vm.chartId, chart);
         }
+        AmCharts.ready(vm.renderChart);
       };
 
-      vm.event = $rootScope.$on('chart:load', function(evt, data) {
-        $timeout(function() { vm.makeChart(data); });
+      vm.addData = function(data) {
+        if (!angular.isArray(data)) {
+          return vm.data.push(data);
+        }
+        data.forEach(vm.data.push);
+      };
+
+      vm.event = $rootScope.$on('chart:' + vm.identifier + ':load', function(evt, data) {
+        vm.addData(data);
+        $timeout(vm.renderChart);
       });
     }
   }

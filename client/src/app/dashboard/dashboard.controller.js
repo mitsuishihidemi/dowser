@@ -14,10 +14,12 @@
       { dataName: 'Test' }
     ];
 
-    ChartData.load('My Sells');
+    ChartData.load('main', 'My Sells');
+    ChartData.load('ice-creams', 'Ice Cream Sells');
+    ChartData.load('weather', 'Weather');
 
     vm.addChart = function(category) {
-      ChartData.load(category);
+      ChartData.load('main', category);
     };
   }
 })();
