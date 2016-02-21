@@ -12,10 +12,11 @@
     };
 
     function load(identifier, category) {
-      Api.get('/chart/data/' + category, function() {
-        var data = ChartDataMock.get(category);
-        $rootScope.$emit('chart:' + identifier + ':load', data);
-      });
+      Api.__get('Chart/Data/' + category)
+        .then(function(resolve) {
+          var data = ChartDataMock.get(category);
+          $rootScope.$emit('chart:' + identifier + ':load', data);
+        });
     }
   }
 })();
