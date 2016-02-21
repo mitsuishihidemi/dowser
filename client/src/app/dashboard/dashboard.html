@@ -6,7 +6,7 @@
         <md-button ng-click="dashboard.addNewChart()" class="md-raised md-primary">Add Chart</md-button>
       </div>
       <ul class="chart-list">
-        <li class="chart-item chart-item-active" ng-repeat="chartItem in dashboard.chartList track by $index">
+        <li class="chart-item chart-item-active" ng-click="dashboard.setMainChart()" ng-repeat="chartItem in dashboard.chartList track by $index">
           {{ chartItem.name }}
         </li>
       </ul>

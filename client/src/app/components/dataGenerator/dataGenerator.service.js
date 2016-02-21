@@ -32,10 +32,8 @@
 
     function createTimeStamp() {
       var today = moment();
-      var startDate = today.startOf().date();
-      var endDate = today.endOf().date();
-      var randomDate = randomNumber(startDate, endDate);
-      return +today.date(randomDate);
+      var startDate = today.clone().subtract(10);
+      return +moment(startDate + Math.random() * (today - startDate));
     }
 
     function randomNumber(start, end) {

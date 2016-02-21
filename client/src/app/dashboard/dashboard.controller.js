@@ -32,6 +32,10 @@
       }, 500);
     };
 
+    vm.setMainChart = function() {
+      
+    };
+
     vm.addChart = function(id) {
       ChartData.loadOn(vm.mainChart.id, id);
     };
