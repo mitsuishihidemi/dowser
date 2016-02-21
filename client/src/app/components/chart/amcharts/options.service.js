@@ -10,8 +10,7 @@
     function AmChartOptions(id, datas) {
       var chart = new AmChartSerial();
       chart.valueAxes = [];
-
-      console.log(ChartDataMock.get());
+      
       datas.forEach(function(data, index) {
         chart.valueAxes.push(new AmChartValueAxe(index));
       });
