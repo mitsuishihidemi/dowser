@@ -39,8 +39,8 @@ Api.prototype.parseToData = function(points) {
 
     for(var i = 0; i < points.length; i++) {
         var point = {
-            "date" : dateFuture + "",
-            "value" : parseInt(points[i]) + ""
+            "date" : dateFuture,
+            "value" : (points[i]).toFixed(2)
         }
 
         parsed[i] = point;
