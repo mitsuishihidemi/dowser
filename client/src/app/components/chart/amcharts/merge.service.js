@@ -16,7 +16,7 @@
 
     AmChartMerge.prototype.__destructureData = function(structuredData) {
       structuredData.data.sort(function(left, right) {
-        return left.date.valueOf() > right.date.valueOf();
+        return left.date.valueOf() - right.date.valueOf();
       });
       var dates = structuredData.data.map(function(d) {
         return d.date;
