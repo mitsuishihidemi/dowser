@@ -9,8 +9,6 @@
   function DashboardController($timeout, $state, $stateParams, ChartData) {
     var vm = this;
 
-    console.log($stateParams);
-
     vm.inputSearch = '';
     vm.chartList = [
       { dataName: 'Test' }

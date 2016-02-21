@@ -6,15 +6,17 @@
     .controller('AgreementController', AgreementController);
 
   /** @ngInject */
-  function AgreementController($rootScope, $state, $timeout, $stateParams) {
+  function AgreementController($rootScope, $state, $timeout, $stateParams, $log, $localStorage, Api) {
     var vm = this;
 
     vm.accept = debounce(function() {
-      // Api.post('DataType/Insert', $stateParams, function(data) {
-      //   $log.error('success', data);
-      // });
-      $rootScope.$emit('wizard:progress');
-      $state.go('dashboard', $stateParams);
+      Api.post('DataType/Insert', $stateParams.data)
+        .then(function(response) {
+          $rootScope.$emit('wizard:progress');
+          $localStorage.ownCharts.push(response.data.generated_keys);
+          $state.go('dashboard');
+        })
+        .catch($log.error);
     });
 
     vm.deny = debounce(function() {

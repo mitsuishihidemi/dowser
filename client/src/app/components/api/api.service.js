@@ -6,38 +6,29 @@
     .factory('Api', Api);
 
   /** @ngInject */
-  function Api($timeout, $http) {
+  function Api($timeout, $http, $log) {
 
-    var url = 'http://158.85.206.13:8081/';
+    var url = 'http://158.85.199.5:3002/';
 
     return {
+      __get: __get,
       get: get,
       post: post
     };
 
-    function get(endpoint, callback) {
-      $timeout(callback, 1000);
+    function __get(endpoint) {
+      return new Promise(function(resolve) {
+        $log.info('Getting: ' + url + endpoint);
+        $timeout(resolve, 2000);
+      });
     }
 
-    function post(endpoint, data, callback) {
-      var settings = {
-        async: true,
-        crossDomain: true,
-        url: url + endpoint,
-        method: 'POST',
-        headers: {
-          'cache-control': 'no-cache',
-          'postman-token': '2ac2e3fc-cd42-eb79-2ada-86749b3db8cf',
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        data: data
-      };
-
-      $http(settings).then(callback, errorCallback);
+    function get(endpoint) {
+      return $http.get(url + endpoint);
     }
 
-    function errorCallback(e) {
-      console.error('Error: ', e);
+    function post(endpoint, data) {
+      return $http.post(url + endpoint, data);
     }
   }
 })();
