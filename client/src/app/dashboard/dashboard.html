@@ -2,8 +2,8 @@
   <div class="sidebar dark-theme">
     <h1 class="logo">Dowser</h1>
     <div class="charts">
-      <div class="input-search">
-        <input type="text" placeholder="Search charts" autocomplete="false" ng-model="dashboard.inputSearch" />
+      <div class="chart-features">
+        <md-button ng-click="importer.next()" class="md-raised md-primary">Add Chart</md-button>
       </div>
       <ul class="chart-list">
         <li class="chart-item chart-item-active" ng-repeat="chartItem in dashboard.chartList track by $index">
@@ -13,6 +13,7 @@
     </div>
   </div>
   <div class="content">
+    <h2>Teste</h2>
     <chart></chart>
     <md-button class="md-raised" ng-click="dashboard.addChart('Ice Cream Sells')">Add Ice Cream</md-button>
     <md-button class="md-raised" ng-click="dashboard.addChart('Weather')">Add Weather</md-button>
