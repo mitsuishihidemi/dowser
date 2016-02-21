@@ -41,6 +41,27 @@ Server.prototype.addRoutes = function() {
 
         return next();
     });
+
+    this.server.get('/' + this.commandFactory.ROUTE_DATA_TYPE_GET_BY_USER + "/:id", function (req, res, next) {
+        var getCommand = self.commandFactory.create(self.commandFactory.ROUTE_DATA_TYPE_GET_BY_USER);  
+ 
+        getCommand.execute(req.params.id, function(error, data){
+            res.send(error || data);
+        });
+
+        return next();
+    });
+
+    this.server.get('/' + this.commandFactory.ROUTE_DATA_TYPE_GET_BY_NOT_USER + "/:id", function (req, res, next) {
+        var getCommand = self.commandFactory.create(self.commandFactory.ROUTE_DATA_TYPE_GET_BY_NOT_USER);  
+ 
+        getCommand.execute(req.params.id, function(error, data){
+            res.send(error || data);
+        });
+
+        return next();
+    });
+
 }
 
 Server.prototype.start = function(port) {

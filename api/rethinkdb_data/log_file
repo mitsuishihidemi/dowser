@@ -141,3 +141,7 @@
 2016-02-20T12:10:23.917053060 11187.879450s notice: Someone asked for the nonwhitelisted file "/robots.txt".  If this should be accessible, add it to the static web assets.
 2016-02-20T12:10:24.258568122 11188.220954s notice: Someone asked for the nonwhitelisted file "/sitemap.xml".  If this should be accessible, add it to the static web assets.
 2016-02-20T18:10:22.890873380 32786.853259s notice: Someone asked for the nonwhitelisted file "/myadmin/scripts/setup.php".  If this should be accessible, add it to the static web assets.
+2016-02-20T23:21:45.720340913 51469.682726s notice: Someone asked for the nonwhitelisted file "/zabbix/dashboard.php".  If this should be accessible, add it to the static web assets.
+2016-02-21T04:18:57.237782070 69301.200168s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Configuration is changing.
+2016-02-21T04:20:08.739201686 69372.701587s info: Table 1001d97a-502e-48a9-93de-a7f084d4d68a: Configuration is changing.
+2016-02-21T04:36:10.160941042 70334.123326s info: Table d1bafe32-e4ed-451c-a46c-ed0b10adabf1: Configuration is changing.
