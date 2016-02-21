@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function ChartController($scope, $rootScope, $timeout, AmChartOptions, AmChartDataStore) {
+    function ChartController($scope, $rootScope, $timeout, AmChartOptions, AmChartDataStore, AmChartMerge) {
       var vm = this;
 
       vm.chartId = 'chart-' + vm.identifier
@@ -41,7 +41,11 @@
       });
 
       vm.mergeEvent = $rootScope.$on('chart:' + vm.identifier + ':merge', function(evt) {
-        console.log('majika!');
+        var data = angular.copy(vm.dataStore.get());
+        var merged = new AmChartMerge(data).get(function(merged) {
+          vm.dataStore.addOnFirst(merged);
+          $timeout(vm.renderChart);
+        });
       });
     }
   }
