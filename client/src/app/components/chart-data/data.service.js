@@ -8,7 +8,8 @@
   /** @ngInject */
   function ChartData($rootScope, Api, ChartDataMock) {
     return {
-      load: load
+      load: load,
+      loadOn: loadOn
     };
 
     function parseData(data) {
@@ -29,6 +30,14 @@
         .then(function(response) {
           var data = parseData(response.data);
           $rootScope.$emit('chart:' + identifier + ':load', data);
+        });
+    }
+
+    function loadOn(containerIdentifier, identifier, name) {
+      Api.get('DataType/Get/' + identifier)
+        .then(function(response) {
+          var data = parseData(response.data);
+          $rootScope.$emit('chart:' + containerIdentifier + ':load', data);
         });
     }
   }

@@ -32,9 +32,9 @@
       }, 500);
     };
 
-    // vm.addChart = function(category) {
-    //   ChartData.load('main', category);
-    // };
+    vm.addChart = function(id) {
+      ChartData.loadOn(vm.mainChart.id, id);
+    };
 
     vm.initialize = function() {
       User.loadData().then(function() {
@@ -42,6 +42,7 @@
         vm.comparableCharts = User.notMyData;
         vm.mainChart = vm.chartList[0];
         vm.loadMyChart();
+        vm.loadComparableCharts();
       });
     };
 
