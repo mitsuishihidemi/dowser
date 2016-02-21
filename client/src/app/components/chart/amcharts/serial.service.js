@@ -24,7 +24,8 @@
           "firstDayOfWeek": 0,
           "parseDates": true,
           "axisThickness": 0,
-          "gridThickness": 0,
+          "gridThickness": 1,
+          "dashLength": AmChartFormats.dashLength,
           "equalSpacing": true,
           "guides": [
             {
@@ -39,6 +40,7 @@
         "chartCursor": {
           "enabled": true,
           "balloonPointerOrientation": "horizontal",
+          "cursorPosition": "mouse",
           "bulletSize": 5,
           "animationDuration": 0.3,
           "categoryBalloonDateFormat": "MMM DD",

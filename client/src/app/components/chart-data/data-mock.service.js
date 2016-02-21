@@ -38,7 +38,8 @@
             { date: 1456316481000, value: 133 },
             { date: 1456402893000, value: 231 },
             { date: 1456489323000, value: 233 },
-            { date: 1456575735000, value: 122 }
+            { date: 1456575735000, value: 122 },
+            { date: 1456667562060, value: 341 }
           ]
         },
         {
@@ -58,7 +59,8 @@
             { date: 1456316481000, value: getRandomInt(50, 380) },
             { date: 1456402893000, value: getRandomInt(50, 380) },
             { date: 1456489323000, value: getRandomInt(50, 380) },
-            { date: 1456575735000, value: getRandomInt(50, 380) }
+            { date: 1456575735000, value: getRandomInt(50, 380) },
+            { date: 1456667562060, value: getRandomInt(50, 380) }
           ]
         },
         {
@@ -79,7 +81,8 @@
             { date: 1456316481000, value: getRandomInt(14, 33) },
             { date: 1456402893000, value: getRandomInt(14, 33) },
             { date: 1456489323000, value: getRandomInt(14, 33) },
-            { date: 1456575735000, value: getRandomInt(14, 33) }
+            { date: 1456575735000, value: getRandomInt(14, 33) },
+            { date: 1456667562060, value: getRandomInt(14, 33) }
           ]
         }
       ];
