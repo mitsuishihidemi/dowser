@@ -38,6 +38,7 @@
         controllerAs: 'agreement'
       })
       .state('dashboard', {
+        params: {data: {}},
         url: '/dashboard',
         templateUrl: 'app/dashboard/dashboard.html',
         controller: 'DashboardController',
