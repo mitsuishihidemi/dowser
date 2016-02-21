@@ -5,16 +5,16 @@
     .module('dowser')
     .controller('RegisterController', RegisterController);
 
-  RegisterController.$inject = ['$rootScope', '$timeout', '$state', 'Api'];
+  RegisterController.$inject = ['$rootScope', '$timeout', '$state'];
 
   /** @ngInject */
-  function RegisterController($rootScope, $timeout, $state, Api) {
+  function RegisterController($rootScope, $timeout, $state) {
     var vm = this;
 
     vm.data = {
-      dataName: undefined,
-      unit: undefined,
-      itAcumulates: false
+      name: undefined,
+      kind: undefined,
+      userId: 'user'
     };
 
     vm.next = function() {
@@ -23,10 +23,8 @@
     };
 
     function registerData() {
-      Api.post('register', vm.data, function() {
-        $rootScope.$emit('wizard:progress');
-        $state.go('wizard.importer', vm.data);
-      });
+      $rootScope.$emit('wizard:progress');
+      $state.go('wizard.importer', vm.data);
     }
   }
 })();
