@@ -32,6 +32,11 @@
       }, 500);
     };
 
+    vm.setMainChart = function() {
+      console.log(vm.chartList);
+      console.log('teste');
+    };
+
     // vm.addChart = function(category) {
     //   ChartData.load('main', category);
     // };
