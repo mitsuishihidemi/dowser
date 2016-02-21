@@ -11,9 +11,17 @@
     var url = 'http://158.85.199.5:3002/';
 
     return {
+      __get: __get,
       get: get,
       post: post
     };
+
+    function __get(endpoint) {
+      return new Promise(function(resolve, reject) {
+        console.log('Getting: ' + url + endpoint);
+        $timeout(resolve, 2000);
+      });
+    }
 
     function get(endpoint) {
       var settings = {
