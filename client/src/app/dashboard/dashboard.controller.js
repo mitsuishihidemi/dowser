@@ -37,15 +37,15 @@
       $timeout(function() {
         vm.mainChart = chart;
         vm.loadMyChart();
-      }, 1000);
+      }, 500);
     };
 
     vm.createMerge = function() {
       $rootScope.$emit('chart:' + vm.mainChart.id + ':merge');
     };
 
-    vm.addChart = function(id) {
-      ChartData.loadOn(vm.mainChart.id, id);
+    vm.addChart = function(chart) {
+      ChartData.loadOn(vm.mainChart.id, chart.id);
     };
 
     vm.initialize = function() {
