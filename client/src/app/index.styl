@@ -121,7 +121,8 @@ body
   .content
     flex 1 1 auto
     background-color #455A64
-    overflow scroll
+    overflow-y auto
+    overflow-x hidden
 
 .opening
   text-align center
@@ -207,7 +208,8 @@ body
   list-style none
   padding 0
   margin 0
-  overflow scroll
+  overflow-y auto
+  overflow-x hidden
   heigh 100%
   flex 1
 
@@ -215,6 +217,7 @@ body
   border-bottom dark-border
   padding 16px 21px
   outline none
+  cursor pointer
   transition all .2s ease-in-out
 
   &:hover
