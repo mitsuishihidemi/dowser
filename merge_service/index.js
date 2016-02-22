@@ -28,9 +28,6 @@ http.createServer(function(request,response){
     }
 }).listen(8002)
 
-// var mergedWeatherRain = merge(weather,rain);
-
-// console.log(apply(iceCreamSells,mergedWeatherRain))
 
 function apply(realData,anotherData) {
 	var maxMin = aux.getMaxMin(realData);
