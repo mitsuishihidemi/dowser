@@ -20,7 +20,9 @@
       <h2 class="md-headline">{{ dashboard.mainChart.name }}</h2>
       <md-button ng-click="dashboard.createMerge()" class="md-raised md-accent">Create Merge Line</md-button>
     </div>
-    <chart ng-if="dashboard.mainChart.id" identifier="{{ dashboard.mainChart.id }}"></chart>
+    <div class="chart-container">
+      <chart ng-if="dashboard.mainChart.id" identifier="{{ dashboard.mainChart.id }}"></chart>
+    </div>
     <h3 class="md-title">Comparable Charts</h2>
     <div class="comparable-charts">
       <div ng-repeat="comparableChartItem in dashboard.comparableCharts" class="comparable-chart-item">
