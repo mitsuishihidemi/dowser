@@ -20,7 +20,6 @@ http.createServer(function(request,response){
         	body = JSON.parse(body);
             var mergeItens = body.mergeWith;
             mergeItens.push(body.realData);
-console.log(mergeItens);
             var mergedData = merge.apply(this, mergeItens);
             response.end(JSON.stringify(apply(body.realData,mergedData)));
         });
@@ -29,9 +28,6 @@ console.log(mergeItens);
     }
 }).listen(8002)
 
-// var mergedWeatherRain = merge(weather,rain);
-
-// console.log(apply(iceCreamSells,mergedWeatherRain))
 
 function apply(realData,anotherData) {
 	var maxMin = aux.getMaxMin(realData);
