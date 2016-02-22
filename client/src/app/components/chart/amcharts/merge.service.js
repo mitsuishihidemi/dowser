@@ -89,6 +89,10 @@
     AmChartMerge.prototype.get = function(cb) {
       var self = this;
 
+      self.__mergeWith = self.__mergeWith.filter(function(d) {
+        return d.id !== self.__realData.id;
+      });
+
       if (self.__mergeWith.length < 1) {
         return;
       }
