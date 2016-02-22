@@ -9,7 +9,7 @@
   function AmChartGraphService() {
     function AmChartGraph(data, index) {
       return {
-        "balloonText": "[[value]]" + (data.unit || 'un'),
+        "balloonText": "[[value]] " + (data.unit || 'un'),
         "bullet": "round",
         "dashLengthField": "dashLength",
         "id": "AmGraph-" + index,
