@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function DataGenerator() {
-    var days = 30;
+    var days = 14;
 
     return {
       generate: generate

@@ -2,16 +2,13 @@
 <form name="registerForm">
   <md-input-container>
     <label>Data name</label>
-    <input required ng-model="register.data.name" autocomplete="off" md-placeholder="Weather">
-    <div class="input-hint">Ex: Weather</div>
+    <input required ng-model="register.data.name" autocomplete="off" md-placeholder="Ice Cream Sales">
+    <div class="input-hint">Ex: Ice Cream Sales</div>
   </md-input-container>
   <md-input-container>
     <label>Unit</label>
-    <input required ng-model="register.data.kind" autocomplete="off" md-placeholder="ºF">
-    <div class="input-hint">Ex: ºF</div>
+    <input required ng-model="register.data.kind" autocomplete="off" md-placeholder="un">
+    <div class="input-hint">Ex: un</div>
   </md-input-container>
-  <!-- <md-switch ng-model="register.data.itAcumulates">
-    Is it cumulative?
-  </md-switch> -->
   <md-button ng-click="!registerForm.$valid || register.next()" class="md-raised md-primary wizard-button">Save</md-button>
 </form>
