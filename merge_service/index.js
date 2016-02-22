@@ -3,6 +3,9 @@ var http = require('http');
 
 
 http.createServer(function(request,response){
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     if (request.method == 'POST') {
         var body = '';
 
@@ -14,8 +17,11 @@ http.createServer(function(request,response){
         });
 
         request.on('end', function () {
-        	body = JSON.parse(body)
-        	var mergedData = merge.apply(this,body.mergeWith);
+        	body = JSON.parse(body);
+            var mergeItens = body.mergeWith;
+            mergeItens.push(body.realData);
+console.log(mergeItens);
+            var mergedData = merge.apply(this, mergeItens);
             response.end(JSON.stringify(apply(body.realData,mergedData)));
         });
     }else{
@@ -23,28 +29,40 @@ http.createServer(function(request,response){
     }
 }).listen(8002)
 
-
-
-
-
 // var mergedWeatherRain = merge(weather,rain);
 
 // console.log(apply(iceCreamSells,mergedWeatherRain))
 
-
-
-
-function apply(realData,anotherData){
+function apply(realData,anotherData) {
 	var maxMin = aux.getMaxMin(realData);
-	return anotherData.map(function(item){
+	var maped = anotherData.map(function(item){
 		return item*maxMin.max
-	})
+	});
+
+    var finalData = [];
+    realData.forEach(function(item, index){
+        if(maped[index]) {
+            finalData.push(maped[index]);
+        } else {
+            finalData.push(item);
+        }
+    });
+
+    return finalData;
 }
 
-function merge(){
+function merge() {
+
+    var maxLength = 0;
+    var maxLengthIndex = 0;
 	var normalized = [];
-	[].forEach.call(arguments,function(a){
-		var maxMin = aux.getMaxMin(a);
+	[].forEach.call(arguments,function(a,index){
+		if(a.length > maxLength) {
+            maxLength = a.length;
+            maxLengthIndex = index;     
+        }
+
+        var maxMin = aux.getMaxMin(a);
 		a = a.map(function(i){
 			return i/maxMin.max
 		})
@@ -52,10 +70,12 @@ function merge(){
 	})
 
 	var merged = [];
-	normalized[0].forEach(function(item,index){
+	normalized[maxLengthIndex].forEach(function(item,index){
 		var currentIndex = []
 		normalized.forEach(function(arr){
-			currentIndex.push(arr[index]);
+			if(arr[index]) {
+                currentIndex.push(arr[index]);
+            }
 		})
 		merged.push(aux.average(currentIndex).mean)
 		currentIndex = [];
