@@ -8,8 +8,8 @@
   /** @ngInject */
   function Api($timeout, $http, $log) {
 
-    var url = 'http://158.85.199.5:8081/';
-    var urlMerge = 'http://158.85.206.13:8002/';
+    var url = 'http://158.85.206.13:8081/';
+    var urlMerge = 'http://158.85.199.5:8002';
 
     return {
       __get: __get,
@@ -34,6 +34,7 @@
     }
 
     function merge(data) {
+      return $http.post(urlMerge, data);
     }
   }
 })();

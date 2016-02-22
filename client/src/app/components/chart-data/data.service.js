@@ -20,7 +20,7 @@
         data: data.points.map(function(point) {
           return {
             date: point.date,
-            value: point.value
+            value: Math.round(Number(point.value))
           };
         })
       };
