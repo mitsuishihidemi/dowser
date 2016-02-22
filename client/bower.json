@@ -25,6 +25,9 @@
     },
     "amcharts3" : {
         "main": ["amcharts/amcharts.js", "amcharts/serial.js", "amcharts/themes/dark.js"] 
+    },
+    "angular-material" : {
+        "main": ["angular-material.min.js", "angular-material.min.css"] 
     }
   },
   "devDependencies": {
