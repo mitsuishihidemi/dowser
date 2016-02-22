@@ -8,7 +8,9 @@
   /** @ngInject */
   function AmChartMergeService(Api) {
     function AmChartMerge(dataStore) {
+      this.__original = dataStore[0];
       this.__realData = dataStore[0];
+      this.__realDataId = this.__realData.id;
       this.__realDataCategory = this.__realData.category;
       this.__realDataUnit = this.__realData.unit;
       this.__mergeWith = dataStore.slice(1);
@@ -32,21 +34,22 @@
 
     AmChartMerge.prototype.__structureData = function(destructuredData) {
       var data = {
-        dates: this.__realData.dates,
+        dates: this.__realData.dates.slice(-destructuredData.length),
         values: destructuredData
       };
 
-      var merged = {
-        category: 'Merged ' + this.__realDataCategory,
+      var structuredData = {
+        category: this.__realDataCategory,
         unit: this.__realDataUnit,
+        id: this.__realDataId,
         data: []
       };
 
       for (var i = 0; i < data.dates.length; i += 1) {
-        merged.data[i] = { date: data.dates[i], value: data.values[i] };
+        structuredData.data[i] = { date: data.dates[i], value: destructuredData[i] };
       }
 
-      return merged;
+      return structuredData;
     };
 
     AmChartMerge.prototype.__removeBeforeToday = function(d) {
@@ -61,7 +64,30 @@
       }
 
       return n;
+    };
+
+    function findIndex(date, arr) {
+      for (var i = 0; i < arr.length; i += 1) {
+        if (arr[i].date.isSame(date)) {
+          return i;
+        }
+      }
     }
+
+    AmChartMerge.prototype.__merge = function(other) {
+      var self = this;
+
+      var original = angular.copy(this.__original);
+      other = angular.copy(other);
+
+      other.data.forEach(function(d) {
+        var otherDate = d.date;
+        var index = findIndex(d.date, original.data);
+        original.data[index] = d;
+      });
+
+      return original;
+    };
 
     AmChartMerge.prototype.get = function(cb) {
       var self = this;
@@ -90,7 +116,7 @@
         .then(function(response) {
           var data = response.data.map(function(v) { return Math.round(v) });
           data = self.__structureData(data);
-          cb(data);
+          cb(self.__merge(data));
         });
 
       return self.dataStore;

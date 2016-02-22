@@ -45,7 +45,7 @@
     };
 
     AmChartDataStore.prototype.addOnFirst = function(data) {
-      this.data.unshift(data);
+      this.data[0] = data;
     };
 
     return AmChartDataStore;
