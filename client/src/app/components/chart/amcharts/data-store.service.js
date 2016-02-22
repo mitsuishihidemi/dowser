@@ -23,23 +23,24 @@
       return this.data;
     };
 
-    AmChartDataStore.prototype.__add = function(data) {
-      var index = 1;
-      var categoryName = data.category;
-      this.data.forEach(function(d) {
-        if (d.category == categoryName) {
-          categoryName = data.category + ' ' + ++index;
-        }
+    AmChartDataStore.prototype.__toggle = function(data) {
+      var index;
+      this.data.every(function(d, i) {
+        return d.id !== data.id || (function() { index = i; })();
       });
-      data.category = categoryName;
-      this.data.push(data);
+
+      if (index) {
+        this.data.splice(index, 1);
+      } else {
+        this.data.push(data);
+      }
     };
 
-    AmChartDataStore.prototype.add = function(data) {
+    AmChartDataStore.prototype.toggle = function(data) {
       if (!angular.isArray(data)) {
-        this.__add(data);
+        this.__toggle(data);
       } else {
-        data.forEach(function(d) { this.__add(d); });
+        data.forEach(function(d) { this.__toggle(d); });
       }
     };
 

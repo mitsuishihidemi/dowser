@@ -49,6 +49,20 @@
       return merged;
     };
 
+    AmChartMerge.prototype.__removeBeforeToday = function(d) {
+      var today = moment().startOf('day');
+      var n = { dates: [], values: [] };
+
+      for (var i = 0; i < d.dates.length; i += 1) {
+        if (d.dates[i].diff(today) >= 0) {
+          n.dates.push(d.dates[i]);
+          n.values.push(d.values[i]);
+        }
+      }
+
+      return n;
+    }
+
     AmChartMerge.prototype.get = function(cb) {
       var self = this;
 
@@ -59,6 +73,11 @@
       self.__realData = self.__destructureData(self.__realData);
       self.__mergeWith = self.__mergeWith.map(function(d) {
         return self.__destructureData(d);
+      });
+
+      self.__realData = self.__removeBeforeToday(this.__realData);
+      self.__mergeWith = self.__mergeWith.map(function(d) {
+        return self.__removeBeforeToday(d);
       });
 
       var realData = self.__realData.values;

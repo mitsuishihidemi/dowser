@@ -36,7 +36,7 @@
       };
 
       vm.loadEvent = $rootScope.$on('chart:' + vm.identifier + ':load', function(evt, data) {
-        vm.dataStore.add(data);
+        vm.dataStore.toggle(data);
         $timeout(vm.renderChart);
       });
 
