@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($timeout, $state, ChartData, User, $rootScope) {
+  function DashboardController($timeout, $state, ChartData, User, $rootScope, AmChartDataStore) {
     var vm = this;
 
     vm.inputSearch = '';
@@ -37,15 +37,15 @@
       $timeout(function() {
         vm.mainChart = chart;
         vm.loadMyChart();
-      }, 1000);
+      }, 500);
     };
 
     vm.createMerge = function() {
       $rootScope.$emit('chart:' + vm.mainChart.id + ':merge');
     };
 
-    vm.addChart = function(id) {
-      ChartData.loadOn(vm.mainChart.id, id);
+    vm.addChart = function(chart) {
+      ChartData.loadOn(vm.mainChart.id, chart.id);
     };
 
     vm.initialize = function() {
