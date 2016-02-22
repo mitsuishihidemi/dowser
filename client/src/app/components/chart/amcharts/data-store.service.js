@@ -43,6 +43,10 @@
       }
     };
 
+    AmChartDataStore.prototype.addOnFirst = function(data) {
+      this.data.unshift(data);
+    };
+
     return AmChartDataStore;
   }
 })();
