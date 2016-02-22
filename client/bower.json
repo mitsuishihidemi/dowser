@@ -19,6 +19,14 @@
     "angularLocalStorage": "ngStorage#^0.3.2",
     "ngstorage": "^0.3.10"
   },
+  "overrides": {
+    "ace-builds": {
+        "main": ["src-min-noconflict/ace.js", "src-min-noconflict/mode-json.js", "src-min-noconflict/theme-twilight.js"]
+    },
+    "amcharts3" : {
+        "main": ["amcharts/amcharts.js", "amcharts/serial.js", "amcharts/themes/dark.js"] 
+    }
+  },
   "devDependencies": {
     "angular-mocks": "~1.4.2",
     "ace-builds": "^1.2.3"
