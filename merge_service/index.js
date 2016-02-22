@@ -3,6 +3,9 @@ var http = require('http');
 
 
 http.createServer(function(request,response){
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     if (request.method == 'POST') {
         var body = '';
 
