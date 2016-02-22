@@ -75,13 +75,10 @@
     }
 
     AmChartMerge.prototype.__merge = function(other) {
-      var self = this;
-
       var original = angular.copy(this.__original);
       other = angular.copy(other);
 
       other.data.forEach(function(d) {
-        var otherDate = d.date;
         var index = findIndex(d.date, original.data);
         original.data[index] = d;
       });
