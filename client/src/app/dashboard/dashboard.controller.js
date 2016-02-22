@@ -22,7 +22,7 @@
       vm.comparableCharts.forEach(function(comparableChartsItem, index) {
         $timeout(function() {
           ChartData.load(comparableChartsItem.id);
-        }, 3000 * index);
+        }, 500 * index);
       });
     };
 
