@@ -3,7 +3,12 @@
     <h1 class="logo">Dowser</h1>
     <div class="charts">
       <div class="chart-features">
-        <md-button ng-click="dashboard.addNewChart()" class="md-raised md-primary">Add Chart</md-button>
+        <md-button ng-click="dashboard.addNewChart()" class="md-raised md-primary">
+          Add Chart
+          <md-tooltip md-direction="right">
+            Go back to wizard and add more graphs.
+          </md-tooltip>
+        </md-button>
       </div>
       <ul class="chart-list">
         <li class="chart-item"
@@ -18,7 +23,12 @@
   <div class="content">
     <div class="chart-tools">
       <h2 class="md-headline">{{ dashboard.mainChart.name }}</h2>
-      <md-button ng-click="dashboard.createMerge()" class="md-raised md-accent">Create Merge Line</md-button>
+      <md-button ng-click="dashboard.createMerge()" class="md-raised md-accent">
+        Influence Graph
+        <md-tooltip md-direction="left">
+          Influence your main graph with the other selected graphs.
+        </md-tooltip>
+      </md-button>
     </div>
     <div class="chart-container">
       <chart ng-if="dashboard.mainChart.id" identifier="{{ dashboard.mainChart.id }}"></chart>
@@ -27,6 +37,9 @@
     <div class="comparable-charts">
       <div ng-repeat="comparableChartItem in dashboard.comparableCharts" class="comparable-chart-item">
         <h4 class="md-subhead">{{ comparableChartItem.name }}</h4>
+        <md-tooltip md-direction="bottom">
+          Add this graph to your main graph.
+        </md-tooltip>
         <chart-mini class="chart-mini-container" ng-class="" ng-click="dashboard.addChart(comparableChartItem)" identifier="{{ comparableChartItem.id }}"></chart-mini>
       </div>
     </div>
