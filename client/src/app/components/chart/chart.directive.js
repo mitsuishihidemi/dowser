@@ -24,6 +24,10 @@
     function ChartController($scope, $rootScope, $timeout, AmChartOptions, AmChartDataStore, AmChartMerge) {
       var vm = this;
 
+      if (!vm.identifier) {
+        return;
+      }
+
       vm.chartId = 'chart-' + vm.identifier
       vm.dataStore = new AmChartDataStore();
 
