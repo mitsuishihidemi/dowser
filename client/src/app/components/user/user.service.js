@@ -10,7 +10,7 @@
     var self = this;
 
     self.id = '007';
-    self.username = 'james';
+    self.username = 'bond';
     self.myData = [];
     self.notMyData = [];
 

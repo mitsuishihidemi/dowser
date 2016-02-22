@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function AmChartMiniOptionsService(ChartDataMock, AmChartSerial, AmChartValueAxe, AmChartGraph, AmChartParser, AmChartFormats) {
+    var count = 0;
     function AmChartMiniOptions(identifier, data) {
       var chart = new AmChartSerial();
 
@@ -19,7 +20,7 @@
       delete chart.legend;
       delete chart.chartCursor;
 
-      chart.colors = AmChartFormats.linesColorPallet;
+      chart.colors = AmChartFormats.linesColorPallet.slice(++count);
       chart.categoryAxis.labelsEnabled = false;
       chart.categoryAxis.gridThickness = 0;
       chart.categoryAxis.dashLength = 0;
