@@ -1,0 +1,32 @@
+<div class="dashboard full-screen dark-theme">
+  <div class="sidebar">
+    <h1 class="logo">Dowser</h1>
+    <div class="charts">
+      <div class="chart-features">
+        <md-button ng-click="dashboard.addNewChart()" class="md-raised md-primary">Add Chart</md-button>
+      </div>
+      <ul class="chart-list">
+        <li class="chart-item"
+            ng-repeat="chartItem in dashboard.chartList track by $index"
+            ng-click="dashboard.setMainChart(chartItem)"
+            ng-class="dashboard.mainChart.id === chartItem.id ? 'chart-item-active' : ''">
+          {{ chartItem.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="content">
+    <div class="chart-tools">
+      <h2 class="md-headline">{{ dashboard.mainChart.name }}</h2>
+      <md-button ng-click="dashboard.createMerge()" class="md-raised md-accent">Create Merge Line</md-button>
+    </div>
+    <chart ng-if="dashboard.mainChart.id" identifier="{{ dashboard.mainChart.id }}"></chart>
+    <h3 class="md-title">Comparable Charts</h2>
+    <div class="comparable-charts">
+      <div ng-repeat="comparableChartItem in dashboard.comparableCharts" class="comparable-chart-item">
+        <h4 class="md-subhead">{{ comparableChartItem.name }}</h4>
+        <chart-mini class="chart-mini-container" ng-class="" ng-click="dashboard.addChart(comparableChartItem)" identifier="{{ comparableChartItem.id }}"></chart-mini>
+      </div>
+    </div>
+  </div>
+</div>

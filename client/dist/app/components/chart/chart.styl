@@ -1,0 +1,35 @@
+.chart
+  width 100%
+  height 300px
+  display flex
+  justify-content center
+  align-items center
+  margin-bottom 50px
+
+.chart-mini
+  height 150px
+  width 90%
+  display flex
+  justify-content center
+  align-items center
+
+.chart-mini .amcharts-axis-zero-grid
+  stroke-width: 0
+  stroke-opacity: 0
+
+.chart a, .chart-mini a
+  opacity .3 !important
+
+.chart .amcharts-graph-line
+  animation fadeIn 0.3s ease-in-out
+
+@keyframes fadeIn
+  0%   opacity 0
+  100% opacity 1
+
+.amcharts-balloon-bg
+  height 22p
+  y: 8.5
+
+.amcharts-balloon-div:last-child
+  margin-top: 8px
