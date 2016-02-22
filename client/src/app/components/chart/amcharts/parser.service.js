@@ -23,6 +23,8 @@
       });
       var maxDate = moment(Math.max.apply(null, self.__dates));
       var minDate = moment(Math.min.apply(null, self.__dates));
+      maxDate = moment().add(7, 'days');
+      minDate = moment().subtract(7, 'days');
       moment.range(minDate, maxDate).by('hours', function(date) {
         self.results[date.format('YYYY-MM-DD')] = { date: date };
       });
@@ -62,6 +64,10 @@
       self.__unparsedData.forEach(function(set) {
         set.data.forEach(function(data) {
           var date = data.date.format('YYYY-MM-DD');
+
+          if (!self.results[date]) {
+            return;
+          }
 
           if (self.results[date][set.category]) {
             self.results[date][set.category] += data.value;

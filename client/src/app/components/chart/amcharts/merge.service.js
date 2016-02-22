@@ -15,9 +15,16 @@
     }
 
     AmChartMerge.prototype.__destructureData = function(structuredData) {
-      structuredData.data.sort(function(left, right) {
+      var today = moment().startOf('day');
+      var minDiff = moment().startOf('day').subtract(7, 'days').diff(today);
+      var maxDiff = moment().endOf('day').add(7, 'days').diff(today);
+      structuredData.data = structuredData.data.sort(function(left, right) {
         return left.date.valueOf() - right.date.valueOf();
       });
+      structuredData.data = structuredData.data.filter(function(d) {
+        return d.date.diff(today) >= minDiff && d.date.diff(today) < maxDiff;
+      });
+      console.log(structuredData.data);
       var dates = structuredData.data.map(function(d) {
         return d.date;
       });
