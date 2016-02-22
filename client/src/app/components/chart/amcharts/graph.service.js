@@ -21,6 +21,7 @@
         "markerType": "square",
         "title": data.category,
         "valueAxis": "ValueAxis-" + index,
+        "fillAlphas": !index ? 0.1 : 0,
         "valueField": data.category
       };
     }
